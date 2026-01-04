@@ -1,8 +1,8 @@
- <mujocoinclude>
-    <compiler inertiafromgeom="true" angle="radian"/> 
+<mujocoinclude>
+    <compiler angle="radian" meshdir="resources/meshes/" texturedir='resources/textures/' inertiafromgeom="true" eulerseq="zyx" autolimits="true" />
 
-    <option gravity="0 0 -9.81" timestep="0.001" integrator="RK4"/>
-    <option iterations="50" noslip_iterations="50"/>
+    <option gravity="0 0 -9.81" timestep="0.001" integrator="RK4" />
+    <option iterations="50" noslip_iterations="50" />
 
     <visual>
         <global offwidth="3024" offheight="1680" />
@@ -10,15 +10,17 @@
         <map force="0.1" fogend="5" />
     </visual>
     <default class="main">
-        <mesh scale="1.0 1.0 1.0"/>
-        <joint limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.002" solimplimit="0 .9 .01" solreflimit=".02 1" range="-1.57075 1.57075"/>
-        <position kp="20.0" ctrlrange="-1.57075 1.57075" gear="1" forcerange="-1 1"/>
-        <geom friction="1 0.5 0.01" margin="0.0" gap="0.0"  group="4" contype="1" conaffinity="1"/>
+        <mesh scale="1.0 1.0 1.0" />
+        <joint limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.002"
+            solimplimit="0 .9 .01" solreflimit=".02 1" range="-1.57075 1.57075" />
+        <position kp="20.0" ctrlrange="-1.57075 1.57075" gear="1" forcerange="-1 1" />
+        <geom friction="1 0.5 0.01" margin="0.0" gap="0.0" group="4" contype="1" conaffinity="1" />
         <default class="collision">
-            <geom conaffinity="0" group="4" type="mesh" solref="0.005 1" solimp="0.95 0.99 0.001"/>
+            <geom conaffinity="0" group="4" type="mesh" solref="0.005 1" solimp="0.95 0.99 0.001" />
         </default>
         <default class="self_collision">
-            <geom contype="2" conaffinity="2" group="3" solref="0.005 1" solimp="0.95 0.99 0.001"  rgba="1.0 0.0 0.0 0.8" />
+            <geom contype="2" conaffinity="2" group="3" solref="0.005 1" solimp="0.95 0.99 0.001"
+                rgba="1.0 0.0 0.0 0.8" />
         </default>
         <default class="visual">
             <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.5 0.5 0.5 1" />
@@ -28,11 +30,128 @@
         </default>
     </default>
 
-    
+    <asset>
+        <texture type="cube" name="texgeom" builtin="flat" mark="cross" rgb1="0.3 0.6 0.5"
+            rgb2="0.3 0.6 0.5" width="127" height="762" />
+        <texture type="cube" name="wood" file="wood.png" />
+        <texture type="2d" name="wood2d" file="wood.png" />
+        <texture type="cube" name="square" file="square.png" />
+        <texture type="cube" name="foil" file="silverRaw.png" />
+        <texture type="cube" name="woodb" file="woodb.png" />
+        <texture type="2d" name="groundplane" builtin="checker" rgb1="0.2 0.3 0.4"
+            rgb2="0.1 0.2 0.3" width="100" height="100" />
+        <texture type="2d" name="marble2d" file="marble.png" />
+        <texture type="cube" name="marblecube" file="marble.png" />
+        <material name="MatColl" specular="1" shininess="0.3" reflectance="0.5" rgba="0.4 0.5 0.6 1" />
+        <material name="MatViz" specular="0.75" shininess="0.1" reflectance="0.5"
+            rgba="0.9 0.7 0.5 1" />
+        <material name="MatGnd" specular="0.3" shininess="0.3" reflectance="0.3"
+            rgba="0.5 0.55 0.5 1" />
+        <material name="object" texture="texgeom" />
+        <material name="groundplane" texture="groundplane" texrepeat="10 10" />
+        <material name="table2d" texture="marble2d" reflectance="0.3" rgba="0.8 0.8 0.8 1" />
+        <material name="tablecube" texture="marblecube" rgba="0.8 0.8 0.8 1" />
+        <material name="MatFoil" texture="foil" specular="1" shininess="0.3" rgba="0.9 0.9 0.9 1" />
+        <material name="MatPlane" specular="0.3" shininess="0.3" rgba="0.3 0.3 0.2 1" />
+        <material name="MatWood" texture="wood" texrepeat="3 3" specular="0.4" shininess="0.1" />
+        <material name="MatSquare" texture="square" specular="1" shininess="0.6"
+            rgba="0.8 0.8 0.8 1" />
+        <material name="MatWoodR" texture="wood" specular="1" shininess="0.3" rgba="1 0.5 0.5 1" />
+        <material name="MatWoodG" texture="wood" specular="1" shininess="0.3" rgba="0.2 1 0.2 1" />
+        <material name="MatWoodB" texture="woodb" specular="1" shininess="0.3" />
+        <texture builtin="gradient" height="100" rgb1="1 1 1" rgb2="0 0 0" type="skybox" width="100" />
+        <texture builtin="checker" height="1000" name="texplane" rgb1="0 0 0" rgb2="0.8 0.8 0.8"
+            type="2d" width="1000" />
+        <material name="geom" texture="texgeom" texuniform="true" />
+        <material name="palm_lower_material" rgba="1 1 1 1.0" />
+        <material name="proximal_phalanx_1_material" rgba="0.0 0 0 1.0" />
+        <material name="proximal_phalanx_2_material" rgba="0.0 0 0 1.0" />
+        <material name="middle_phalanx_material" rgba="0.0 0 0 1.0" />
+        <material name="distal_phalanx_material" rgba="1 1 1 1.0" />
+        <material name="thumb_semi_palm_2_material" rgba="0 0 0 1.0" />
+        <material name="thumb_middle_phalanx_material" rgba="0 0 0 1.0" />
+        <material name="thumb_distal_phalanx_material" rgba="1 1 1 1.0" />
+        <material name="default_material" rgba="0.7 0.7 0.7 1" />
+        <mesh name="palm_lower_collision.stl" file="palm_lower_collision.stl" />
+        <mesh name="palm_lower.stl" file="palm_lower.stl" />
+        <mesh name="proximal_phalanx_1_collision.stl" file="proximal_phalanx_1_collision.stl" />
+        <mesh name="proximal_phalanx_1.stl" file="proximal_phalanx_1.stl" />
+        <mesh name="proximal_phalanx_2_collision.stl" file="proximal_phalanx_2_collision.stl" />
+        <mesh name="proximal_phalanx_2.stl" file="proximal_phalanx_2.stl" />
+        <mesh name="middle_phalanx_collision.stl" file="middle_phalanx_collision.stl" />
+        <mesh name="middle_phalanx.stl" file="middle_phalanx.stl" />
+        <mesh name="distal_phalanx_collision.stl" file="distal_phalanx_collision.stl" />
+        <mesh name="distal_phalanx.stl" file="distal_phalanx.stl" />
+        <mesh name="thumb_semi_palm_collision.stl" file="thumb_semi_palm_collision.stl" />
+        <mesh name="thumb_semi_palm.stl" file="thumb_semi_palm.stl" />
+        <mesh name="thumb_middle_phalanx_collision.stl" file="thumb_middle_phalanx_collision.stl" />
+        <mesh name="thumb_middle_phalanx.stl" file="thumb_middle_phalanx.stl" />
+        <mesh name="thumb_distal_phalanx_collision.stl" file="thumb_distal_phalanx_collision.stl" />
+        <mesh name="thumb_distal_phalanx.stl" file="thumb_distal_phalanx.stl" />
+    </asset>
+
+    <actuator>
+        <position name="index_pip_flex_joint_ctrl" joint="index_pip_flex_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.314 2.23"
+            ctrllimited="true" />
+        <position name="index_pip_abb_joint_ctrl" joint="index_pip_abb_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-1.047 1.047"
+            ctrllimited="true" />
+        <position name="index_mcp_joint_ctrl" joint="index_mcp_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.506 1.885"
+            ctrllimited="true" />
+        <position name="index_dip_joint_ctrl" joint="index_dip_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.366 2.042"
+            ctrllimited="true" />
+        <position name="middle_pip_flex_joint_ctrl" joint="middle_pip_flex_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.314 2.23"
+            ctrllimited="true" />
+        <position name="middle_pip_abb_joint_ctrl" joint="middle_pip_abb_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-1.047 1.047"
+            ctrllimited="true" />
+        <position name="middle_mcp_joint_ctrl" joint="middle_mcp_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.506 1.885"
+            ctrllimited="true" />
+        <position name="middle_dip_joint_ctrl" joint="middle_dip_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.366 2.042"
+            ctrllimited="true" />
+        <position name="ring_pip_flex_joint_ctrl" joint="ring_pip_flex_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.314 2.23"
+            ctrllimited="true" />
+        <position name="ring_pip_abb_joint_ctrl" joint="ring_pip_abb_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-1.047 1.047"
+            ctrllimited="true" />
+        <position name="ring_mcp_joint_ctrl" joint="ring_mcp_joint"
+            forcerange="-0.95000000 0.95000000"
+            forcelimited="true" ctrlrange="-0.506 1.885" ctrllimited="true" />
+        <position name="ring_dip_joint_ctrl" joint="ring_dip_joint"
+            forcerange="-0.95000000 0.95000000"
+            forcelimited="true" ctrlrange="-0.366 2.042" ctrllimited="true" />
+        <position name="thumb_cmc_abb_joint_ctrl" joint="thumb_cmc_abb_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-0.349 2.094"
+            ctrllimited="true" />
+        <position name="thumb_cmc_flex_joint_ctrl" joint="thumb_cmc_flex_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-2.47 2.443"
+            ctrllimited="true" />
+        <position name="thumb_mcp_joint_ctrl" joint="thumb_mcp_joint"
+            forcerange="-0.95000000 0.95000000" forcelimited="true" ctrlrange="-1.2 1.9"
+            ctrllimited="true" />
+        <position name="thumb_ip_joint_ctrl" joint="thumb_ip_joint"
+            forcerange="-0.95000000 0.95000000"
+            forcelimited="true" ctrlrange="-1.34 1.88" ctrllimited="true" />
+    </actuator>
+
+    <sensor>
+        <framepos name="base_link_pos" objtype="site" objname="palm_lower_site" />
+        <framequat name="base_link_quat" objtype="site" objname="palm_lower_site" />
+        <framelinvel name="base_link_vel" objtype="site" objname="palm_lower_site" />
+        <frameangvel name="base_link_ang_vel" objtype="site" objname="palm_lower_site" />
+    </sensor>
+
 
     <!-- self collisions -->
     <contact>
-    
+
         <!-- <pair geom1="back_right_leg_a_c0" geom2="back_right_leg_b_motor_c0" condim="3"/>
         <pair geom1="back_right_leg_a_c0" geom2="back_right_leg_b_motor_c1" condim="3"/>
         <pair geom1="back_right_leg_a_c0" geom2="back_right_leg_b_motor_c2" condim="3"/>
@@ -69,6 +188,6 @@
         <pair geom1="back_left_leg_a_c0" geom2="front_left_acrylic_l_c0" condim="3"/> -->
 
     </contact>
-   
 
- </mujocoinclude>
+
+</mujocoinclude>

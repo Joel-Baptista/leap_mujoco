@@ -1,0 +1,36 @@
+<mujoco model="textured_centered">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <texture type="2d" name="texture_map" file="texture_map.png"/>
+    <material name="material_0.001" texture="texture_map" specular="0.0" shininess="0.0"/>
+    <mesh file="textured_centered.obj"/>
+    <mesh file="textured_centered_collision_0.obj"/>
+    <mesh file="textured_centered_collision_1.obj"/>
+    <mesh file="textured_centered_collision_2.obj"/>
+    <mesh file="textured_centered_collision_3.obj"/>
+    <mesh file="textured_centered_collision_4.obj"/>
+    <mesh file="textured_centered_collision_5.obj"/>
+    <mesh file="textured_centered_collision_6.obj"/>
+    <mesh file="textured_centered_collision_7.obj"/>
+  </asset>
+  <worldbody>
+    <body name="textured_centered">
+      <geom material="material_0.001" mesh="textured_centered" class="visual"/>
+      <geom mesh="textured_centered_collision_0" rgba="0.6090535361005207 0.49437418491589014 0.9479679283848913 1" class="collision"/>
+      <geom mesh="textured_centered_collision_1" rgba="0.6309012706951761 0.012038484409622519 0.46796039830076475 1" class="collision"/>
+      <geom mesh="textured_centered_collision_2" rgba="0.013217157489954223 0.946387947002179 0.00658944628980318 1" class="collision"/>
+      <geom mesh="textured_centered_collision_3" rgba="0.010466830899611979 0.13598062161675717 0.5949069105410972 1" class="collision"/>
+      <geom mesh="textured_centered_collision_4" rgba="0.9834007329578367 0.9375363676823217 0.816871727832949 1" class="collision"/>
+      <geom mesh="textured_centered_collision_5" rgba="0.8638842535607214 0.2232978446811701 0.6859864846472365 1" class="collision"/>
+      <geom mesh="textured_centered_collision_6" rgba="0.4406870020885252 0.43775542865146955 0.46606291222139806 1" class="collision"/>
+      <geom mesh="textured_centered_collision_7" rgba="0.932620200585764 0.7568769822202346 0.5043175408771903 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

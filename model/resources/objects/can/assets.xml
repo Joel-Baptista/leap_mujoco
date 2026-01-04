@@ -1,0 +1,9 @@
+<mujocoinclde>
+    <asset>
+        <mesh file="../ycb/005_tomato_soup_can/google_16k/textured_centered.obj" name="ycb_mesh" scale="1.0 1.0 1.0"/>
+
+        <texture name="ycb_texture" type="2d" file="../ycb/005_tomato_soup_can/google_16k/texture_map.png"/>
+
+        <material name="ycb_material" texture="ycb_texture"/>
+    </asset>
+</mujocoinclde>

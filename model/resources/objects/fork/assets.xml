@@ -1,0 +1,30 @@
+<mujocoinclude>
+    <asset>
+        <texture type="2d" name="texture_map" file="../ycb/030_fork/google_16k/meshes_vhacd/texture_map.png"/>
+        <material name="material_0.001" texture="texture_map" specular="0.0" shininess="0.0"/>
+
+        <mesh name="textured_centered" file="../ycb/030_fork/google_16k/meshes_vhacd/textured_centered.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_0" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_0.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_1" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_1.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_2" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_2.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_3" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_3.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_4" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_4.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_5" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_5.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_6" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_6.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_7" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_7.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_8" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_8.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_9" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_9.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_10" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_10.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_11" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_11.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_12" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_12.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_13" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_13.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_14" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_14.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_15" file="../ycb/030_fork/google_16k/meshes_vhacd/separated/convex_15.obj" scale="1.0 1.0 1.0" />
+        
+        <!-- <mesh file="../ycb/030_fork/google_16k/textured_centered.obj" name="ycb_mesh" scale="1.0 1.0 1.0"/>
+
+        <texture name="ycb_texture" type="2d" file="../ycb/030_fork/google_16k/texture_map.png"/>
+
+        <material name="ycb_material" texture="ycb_texture"/> -->
+    </asset>
+</mujocoinclude>

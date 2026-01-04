@@ -1,0 +1,93 @@
+<mujocoinclude>
+    <asset>
+
+        <texture type="2d" name="texture_map" file="../ycb/025_mug/google_16k/meshes_vhacd/texture_map.png"/>
+        <material name="material_0.001" texture="texture_map" specular="0.0" shininess="0.0"/>
+
+        <mesh name="textured_centered" file="../ycb/025_mug/google_16k/meshes_vhacd/textured_centered.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_0" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_0.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_1" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_1.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_2" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_2.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_3" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_3.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_4" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_4.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_5" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_5.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_6" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_6.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_7" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_7.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_8" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_8.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_9" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_9.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_10" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_10.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_11" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_11.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_12" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_12.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_13" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_13.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_14" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_14.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_15" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_15.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_16" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_16.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_17" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_17.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_18" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_18.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_19" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_19.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_20" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_20.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_21" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_21.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_22" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_22.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_23" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_23.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_24" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_24.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_25" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_25.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_26" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_26.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_27" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_27.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_28" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_28.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_29" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_29.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_30" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_30.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_31" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_31.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_32" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_32.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_33" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_33.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_34" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_34.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_35" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_35.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_36" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_36.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_37" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_37.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_38" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_38.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_39" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_39.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_40" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_40.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_41" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_41.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_42" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_42.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_43" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_43.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_44" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_44.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_45" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_45.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_46" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_46.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_47" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_47.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_48" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_48.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_49" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_49.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_50" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_50.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_51" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_51.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_52" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_52.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_53" file="../ycb/025_mug/google_16k/meshes_vhacd/separated/convex_53.obj" scale="1.0 1.0 1.0" />
+
+        <!-- <mesh file="../ycb/025_mug/google_16k/textured_centered.obj" name="ycb_mesh" scale="1.0 1.0 1.0"/>
+        <texture name="ycb_texture" type="2d" file="../ycb/025_mug/google_16k/texture_map.png"/>
+        <material name="ycb_material" texture="ycb_texture"/> -->
+
+        <!-- <texture type="2d" name="texture_map" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/texture_map.png"/>
+        <material name="material_0.001" texture="texture_map" specular="0.0" shininess="0.0"/>
+
+        <mesh name="textured_centered" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_0" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_0.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_1" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_1.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_2" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_2.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_3" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_3.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_4" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_4.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_5" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_5.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_6" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_6.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_7" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_7.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_8" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_8.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_9" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_9.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_10" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_10.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_11" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_11.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_12" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_12.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_13" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_13.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_14" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_14.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_15" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_15.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_16" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_16.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_17" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_17.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_18" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_18.obj" scale="1.0 1.0 1.0" />
+        <mesh name="object_19" file="../ycb/025_mug/google_16k/mug_meshes/textured_centered/textured_centered_collision_19.obj" scale="1.0 1.0 1.0" />
+   -->
+    </asset>
+</mujocoinclude>

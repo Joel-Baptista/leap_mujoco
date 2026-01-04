@@ -1,0 +1,48 @@
+<mujocoinclude>
+            <!-- ======= OBJECT ======= -->
+            <body name="Object" pos="0 0 0.035">
+                <!-- <geom name="sphere" type="mesh" mass="0.066" mesh="ycb_mesh" material="ycb_material"/> -->
+                <geom mesh="textured_centered" material="material_0.001" class="visual"/>
+                <!-- <geom mesh="textured_centered" rgba="0.96 0.96 0.153 1" class="visual"/> -->
+    
+                <geom name="object_0" mass="0.011" mesh="object_0" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+                <geom name="object_1" mass="0.011" mesh="object_1" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+                <geom name="object_2" mass="0.011" mesh="object_2" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+                <geom name="object_3" mass="0.011" mesh="object_3" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+                <geom name="object_4" mass="0.011" mesh="object_4" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+                <geom name="object_5" mass="0.011" mesh="object_5" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+                <!-- <geom name="object_6" margin="0.001" mass="0.0165" mesh="object_6" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+                <geom name="object_7" margin="0.001" mass="0.0165" mesh="object_7" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+                <geom name="object_8" margin="0.001" mass="0.0165" mesh="object_8" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+                <geom name="object_9" margin="0.001" mass="0.0165" mesh="object_9" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+                <geom name="object_10" margin="0.001" mass="0.0165" mesh="object_10" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/> 
+                <geom name="object_11" margin="0.001" mass="0.0165" mesh="object_7" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+                <geom name="object_12" margin="0.001" mass="0.0165" mesh="object_8" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+                <geom name="object_13" margin="0.001" mass="0.0165" mesh="object_9" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+                <geom name="object_14" margin="0.001" mass="0.0165" mesh="object_10" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/> -->
+                
+                <!-- <geom mesh="object_0" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/> -->
+                <!-- <geom mesh="object_1" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/> -->
+                <!-- <geom mesh="object_2" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/> -->
+                <!-- <geom mesh="object_3" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/> -->
+                <!-- <geom mesh="object_4" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/> -->
+                <!-- <geom mesh="object_5" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/> -->
+                <!-- <geom mesh="object_6" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+                <geom mesh="object_7" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+                <geom mesh="object_8" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+                <geom mesh="object_9" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+                <geom mesh="object_10" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+                <geom mesh="object_7" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+                <geom mesh="object_8" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+                <geom mesh="object_9" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+                <geom mesh="object_10" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/> -->
+                
+    
+                <joint name="YCBTx" pos="0 0 0" axis="1 0 0" type="slide" limited="false" damping="0" />
+                <joint name="YCBTy" pos="0 0 0" axis="0 1 0" type="slide" limited="false" damping="0" />
+                <joint name="YCBTz" pos="0 0 0" axis="0 0 1" type="slide" limited="false" damping="0" />
+                <joint name="YCBRx" pos="0 0 0" axis="1 0 0" limited="false" damping="0" />
+                <joint name="YCBRy" pos="0 0 0" axis="0 1 0" limited="false" damping="0" />
+                <joint name="YCBRz" pos="0 0 0" axis="0 0 1" limited="false" damping="0" />
+            </body>
+</mujocoinclude>

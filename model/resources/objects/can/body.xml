@@ -1,0 +1,13 @@
+<mujocoinclude>
+    <body name="Object" pos="0.00 0.0 0.035" >
+        <!-- <geom type="mesh" mesh="ycb_mesh" rgba="0.2 0.2 0.2 1" contype="0" conaffinity="0"/> -->
+        <geom name="object" type="mesh" mass="0.349" mesh="ycb_mesh" material="ycb_material"/>
+        <!-- <inertial pos="0 0 0" mass="0.205" diaginertia="8.80012e-05 8.80012e-05 8.80012e-05" /> -->
+        <joint name="YCBTx" pos="0 0 0" axis="1 0 0" type="slide" limited="false" damping="0" />
+        <joint name="YCBTy" pos="0 0 0" axis="0 1 0" type="slide" limited="false" damping="0" />
+        <joint name="YCBTz" pos="0 0 0" axis="0 0 1" type="slide" limited="false" damping="0" />
+        <joint name="YCBRx" pos="0 0 0" axis="1 0 0" limited="false" damping="0" />
+        <joint name="YCBRy" pos="0 0 0" axis="0 1 0" limited="false" damping="0" />
+        <joint name="YCBRz" pos="0 0 0" axis="0 0 1" limited="false" damping="0" />
+    </body>
+</mujocoinclude>

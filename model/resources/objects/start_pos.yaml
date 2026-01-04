@@ -1,0 +1,25 @@
+sphere:
+  reset_pos: [0.0, -0.1, 0.2]
+  height: 0.035
+pringles:
+  reset_pos: [0.0, 0.15, 0.2]
+  height: 0.0
+banana:
+  reset_pos: [0.0, 0.0, 0.2]
+  height: 0.02
+can:
+  reset_pos: [0.0, 0.0, 0.2]
+  height: 0.0625
+bowl: 
+  reset_pos: [0.0, 0.0, 0.2]
+  height: 0.025
+fork: 
+  reset_pos: [0.0, -0.05, 0.2]
+  height: 0.0075
+mug: 
+  reset_pos: [0.0, 0.0, 0.2]
+  height: 0.039
+mustard:
+  reset_pos: [0.0, 0.1, 0.2]
+  height: 0.12
+

@@ -1,0 +1,59 @@
+<mujoco model="textured_centered">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="material_0.003" specular="0.0" shininess="0.0" rgba="0.800000 0.800000 0.800000 1.000000"/>
+    <mesh file="textured_centered.obj"/>
+    <mesh file="textured_centered_collision_0.obj"/>
+    <mesh file="textured_centered_collision_1.obj"/>
+    <mesh file="textured_centered_collision_2.obj"/>
+    <mesh file="textured_centered_collision_3.obj"/>
+    <mesh file="textured_centered_collision_4.obj"/>
+    <mesh file="textured_centered_collision_5.obj"/>
+    <mesh file="textured_centered_collision_6.obj"/>
+    <mesh file="textured_centered_collision_7.obj"/>
+    <mesh file="textured_centered_collision_8.obj"/>
+    <mesh file="textured_centered_collision_9.obj"/>
+    <mesh file="textured_centered_collision_10.obj"/>
+    <mesh file="textured_centered_collision_11.obj"/>
+    <mesh file="textured_centered_collision_12.obj"/>
+    <mesh file="textured_centered_collision_13.obj"/>
+    <mesh file="textured_centered_collision_14.obj"/>
+    <mesh file="textured_centered_collision_15.obj"/>
+    <mesh file="textured_centered_collision_16.obj"/>
+    <mesh file="textured_centered_collision_17.obj"/>
+    <mesh file="textured_centered_collision_18.obj"/>
+    <mesh file="textured_centered_collision_19.obj"/>
+  </asset>
+  <worldbody>
+    <body name="textured_centered">
+      <geom material="material_0.003" mesh="textured_centered" class="visual"/>
+      <geom mesh="textured_centered_collision_0" rgba="0.018546921856810283 0.996978244184391 0.9317525942310414 1" class="collision"/>
+      <geom mesh="textured_centered_collision_1" rgba="0.5907386777555943 0.3036907253584752 0.977751169338719 1" class="collision"/>
+      <geom mesh="textured_centered_collision_2" rgba="0.5095840717075915 0.2112452914214027 0.012107988713924045 1" class="collision"/>
+      <geom mesh="textured_centered_collision_3" rgba="0.7408811344614268 0.5741413885606346 0.11326316103742862 1" class="collision"/>
+      <geom mesh="textured_centered_collision_4" rgba="0.35716097007674374 0.19674970373021494 0.9124646873947759 1" class="collision"/>
+      <geom mesh="textured_centered_collision_5" rgba="0.86956424937471 0.26318880880054585 0.12695975781203872 1" class="collision"/>
+      <geom mesh="textured_centered_collision_6" rgba="0.2767677188302705 0.6584489443693072 0.3592496099348119 1" class="collision"/>
+      <geom mesh="textured_centered_collision_7" rgba="0.4997281024930056 0.06449357799216271 0.8992716690738705 1" class="collision"/>
+      <geom mesh="textured_centered_collision_8" rgba="0.30234100692454147 0.6769640953096773 0.025022367434646697 1" class="collision"/>
+      <geom mesh="textured_centered_collision_9" rgba="0.43203882352405076 0.22394134168834523 0.3495165806991446 1" class="collision"/>
+      <geom mesh="textured_centered_collision_10" rgba="0.016869054568748876 0.7668788276154531 0.8397596061787018 1" class="collision"/>
+      <geom mesh="textured_centered_collision_11" rgba="0.19474399878160276 0.3432469814597462 0.3295411292155277 1" class="collision"/>
+      <geom mesh="textured_centered_collision_12" rgba="0.7713559649801682 0.6068837361828644 0.9913990531507113 1" class="collision"/>
+      <geom mesh="textured_centered_collision_13" rgba="0.5749638613561783 0.2808946091064026 0.7251827423982128 1" class="collision"/>
+      <geom mesh="textured_centered_collision_14" rgba="0.7738636015474465 0.2465142295978514 0.038643591116009235 1" class="collision"/>
+      <geom mesh="textured_centered_collision_15" rgba="0.1652255639529232 0.36391488096386726 0.09822252283225341 1" class="collision"/>
+      <geom mesh="textured_centered_collision_16" rgba="0.3064292520702777 0.16037250177702778 0.3045600956543788 1" class="collision"/>
+      <geom mesh="textured_centered_collision_17" rgba="0.7448963562860712 0.7113904952712753 0.977866307005526 1" class="collision"/>
+      <geom mesh="textured_centered_collision_18" rgba="0.8935785289668379 0.13173451925252377 0.8390717775834114 1" class="collision"/>
+      <geom mesh="textured_centered_collision_19" rgba="0.8735437158664121 0.865990517824321 0.6514348940199288 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

@@ -7,7 +7,7 @@ DEG2RAD = np.pi / 180.0
 
 def main():
     
-    model = mj.MjModel.from_xml_path("model/robot.mujoco.xml")
+    model = mj.MjModel.from_xml_path("model/leap_grasp_ball.xml")
     data = mj.MjData(model)
 
     mj.mj_step(model, data)

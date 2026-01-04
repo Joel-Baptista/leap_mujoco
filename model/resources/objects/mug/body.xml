@@ -1,0 +1,124 @@
+<mujocoinclude>
+    <body name="Object" pos="0 0 0.035">
+        <!-- <geom name="sphere" type="mesh" margin="0.001" mass="0.147" mesh="ycb_mesh" material="ycb_material"/> -->
+
+        <geom material="material_0.001" mesh="textured_centered" class="visual"/>
+
+        <geom name="object_0" mass="0.0022" mesh="object_0" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_1" mass="0.0022" mesh="object_1" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_2" mass="0.0022" mesh="object_2" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_3" mass="0.0022" mesh="object_3" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_4" mass="0.0022" mesh="object_4" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_5" mass="0.0022" mesh="object_5" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_6" mass="0.0022" mesh="object_6" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_7" mass="0.0022" mesh="object_7" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_8" mass="0.0022" mesh="object_8" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_9" mass="0.0022" mesh="object_9" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_10" mass="0.0022" mesh="object_10" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/> 
+        <geom name="object_11" mass="0.0022" mesh="object_11" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_12" mass="0.0022" mesh="object_12" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_13" mass="0.0022" mesh="object_13" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_14" mass="0.0022" mesh="object_14" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_15" mass="0.0022" mesh="object_15" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_16" mass="0.0022" mesh="object_16" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_17" mass="0.0022" mesh="object_17" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_18" mass="0.0022" mesh="object_18" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_19" mass="0.0022" mesh="object_19" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_20" mass="0.0022" mesh="object_20" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_21" mass="0.0022" mesh="object_21" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_22" mass="0.0022" mesh="object_22" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_23" mass="0.0022" mesh="object_23" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_24" mass="0.0022" mesh="object_24" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_25" mass="0.0022" mesh="object_25" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_26" mass="0.0022" mesh="object_26" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_27" mass="0.0022" mesh="object_27" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_28" mass="0.0022" mesh="object_28" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_29" mass="0.0022" mesh="object_29" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_30" mass="0.0022" mesh="object_30" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/> 
+        <geom name="object_31" mass="0.0022" mesh="object_31" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_32" mass="0.0022" mesh="object_32" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_33" mass="0.0022" mesh="object_33" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_34" mass="0.0022" mesh="object_34" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_35" mass="0.0022" mesh="object_35" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_36" mass="0.0022" mesh="object_36" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_37" mass="0.0022" mesh="object_37" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_38" mass="0.0022" mesh="object_38" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_39" mass="0.0022" mesh="object_39" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_40" mass="0.0022" mesh="object_40" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/> 
+        <geom name="object_41" mass="0.0022" mesh="object_41" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_42" mass="0.0022" mesh="object_42" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_43" mass="0.0022" mesh="object_43" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_44" mass="0.0022" mesh="object_44" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_45" mass="0.0022" mesh="object_45" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_46" mass="0.0022" mesh="object_46" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_47" mass="0.0022" mesh="object_47" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        <geom name="object_48" mass="0.0022" mesh="object_48" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_49" mass="0.0022" mesh="object_49" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/>
+        <geom name="object_50" mass="0.0022" mesh="object_50" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="collision"/> 
+        <geom name="object_51" mass="0.0022" mesh="object_51" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="collision"/>
+        <geom name="object_52" mass="0.0022" mesh="object_52" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="collision"/>
+        <geom name="object_53" mass="0.0022" mesh="object_53" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="collision"/>
+        
+        <!-- <geom mesh="object_0" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_1" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_2" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_3" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_4" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_5" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_6" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_7" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_8" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_9" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_10" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/> 
+        <geom mesh="object_11" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_12" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_13" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_14" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_15" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_16" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_17" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_18" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_19" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_20" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_21" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_22" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_23" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_24" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_25" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_26" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_27" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_28" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_29" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_30" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/> 
+        <geom mesh="object_31" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_32" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_33" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_34" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_35" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_36" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_37" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_38" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_39" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_40" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/> 
+        <geom mesh="object_41" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_42" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_43" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_44" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_45" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_46" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_47" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/>
+        <geom mesh="object_48" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_49" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/>
+        <geom mesh="object_50" rgba="0.6534036928827824 0.4435123278138048 0.7841540970928286 1" class="visual"/> 
+        <geom mesh="object_51" rgba="0.14383604384434656 0.6609407810211276 0.3622154957398047 1" class="visual"/>
+        <geom mesh="object_52" rgba="0.2622529240531396 0.35274006661842183 0.030120110609602402 1" class="visual"/>
+        <geom mesh="object_53" rgba="0.7745836813651212 0.04942534407369137 0.9869863654712593 1" class="visual"/> -->
+
+        <joint name="YCBTx" pos="0 0 0" axis="1 0 0" type="slide" limited="false" damping="0" />
+        <joint name="YCBTy" pos="0 0 0" axis="0 1 0" type="slide" limited="false" damping="0" />
+        <joint name="YCBTz" pos="0 0 0" axis="0 0 1" type="slide" limited="false" damping="0" />
+        <joint name="YCBRx" pos="0 0 0" axis="1 0 0" limited="false" damping="0" />
+        <joint name="YCBRy" pos="0 0 0" axis="0 1 0" limited="false" damping="0" />
+        <joint name="YCBRz" pos="0 0 0" axis="0 0 1" limited="false" damping="0" />
+    </body>
+</mujocoinclude>

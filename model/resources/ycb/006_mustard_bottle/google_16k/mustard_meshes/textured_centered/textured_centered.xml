@@ -1,0 +1,26 @@
+<mujoco model="textured_centered">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <texture type="2d" name="texture_map" file="texture_map.png"/>
+    <material name="material_0.002" texture="texture_map" specular="0.0" shininess="0.0"/>
+    <mesh file="textured_centered.obj"/>
+    <mesh file="textured_centered_collision_0.obj"/>
+    <mesh file="textured_centered_collision_1.obj"/>
+    <mesh file="textured_centered_collision_2.obj"/>
+  </asset>
+  <worldbody>
+    <body name="textured_centered">
+      <geom material="material_0.002" mesh="textured_centered" class="visual"/>
+      <geom mesh="textured_centered_collision_0" rgba="0.8397003110654381 0.896213177004709 0.8197400970618086 1" class="collision"/>
+      <geom mesh="textured_centered_collision_1" rgba="0.32777156168873156 0.17345726874531053 0.5108493141668634 1" class="collision"/>
+      <geom mesh="textured_centered_collision_2" rgba="0.259221096587142 0.015359765944062742 0.6556485644649669 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

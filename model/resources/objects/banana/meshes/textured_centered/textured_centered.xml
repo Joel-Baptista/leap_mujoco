@@ -1,0 +1,28 @@
+<mujoco model="textured_centered">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <texture type="2d" name="texture_map" file="texture_map.png"/>
+    <material name="material_0" texture="texture_map" specular="0.0" shininess="0.0"/>
+    <mesh file="textured_centered.obj"/>
+    <mesh file="textured_centered_collision_0.obj"/>
+    <mesh file="textured_centered_collision_1.obj"/>
+    <mesh file="textured_centered_collision_2.obj"/>
+    <mesh file="textured_centered_collision_3.obj"/>
+  </asset>
+  <worldbody>
+    <body name="textured_centered">
+      <geom material="material_0" mesh="textured_centered" class="visual"/>
+      <geom mesh="textured_centered_collision_0" rgba="0.8408527808838688 0.9047528662934952 0.3767657526011301 1" class="collision"/>
+      <geom mesh="textured_centered_collision_1" rgba="0.778153648941064 0.9341707919500456 0.9871548574425446 1" class="collision"/>
+      <geom mesh="textured_centered_collision_2" rgba="0.8465099915999491 0.9613040567051705 0.8673541311405516 1" class="collision"/>
+      <geom mesh="textured_centered_collision_3" rgba="0.4348934104098503 0.9157765379383215 0.15595880409893914 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>
