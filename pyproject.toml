@@ -11,4 +11,6 @@ dependencies = [
     "mujoco-py>=2.1.2.14",
     "pyyaml>=6.0.3",
     "scikit-learn>=1.8.0",
+    "stable-baselines3>=2.7.1",
+    "tensorboard>=2.20.0",
 ]

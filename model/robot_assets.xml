@@ -1,7 +1,10 @@
 <mujocoinclude>
-    <compiler angle="radian" meshdir="resources/meshes/" texturedir='resources/textures/' inertiafromgeom="true" eulerseq="zyx" autolimits="true" />
+    <compiler angle="radian" meshdir="resources/meshes/" texturedir='resources/textures/'
+        inertiafromgeom="true" eulerseq="zyx" autolimits="true" />
+    <size njmax="500" nconmax="100" nstack="600000" nuser_body="9" nuser_jnt="1" nuser_site="1"
+        nuser_tendon="1" nuser_actuator="16" nuser_sensor="1" />
 
-    <option gravity="0 0 -9.81" timestep="0.001" integrator="RK4" />
+    <option gravity="0 0 -9.81" timestep="0.002" />
     <option iterations="50" noslip_iterations="50" />
 
     <visual>
@@ -10,23 +13,35 @@
         <map force="0.1" fogend="5" />
     </visual>
     <default class="main">
-        <mesh scale="1.0 1.0 1.0" />
-        <joint limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.002"
-            solimplimit="0 .9 .01" solreflimit=".02 1" range="-1.57075 1.57075" />
-        <position kp="20.0" ctrlrange="-1.57075 1.57075" gear="1" forcerange="-1 1" />
-        <geom friction="1 0.5 0.01" margin="0.0" gap="0.0" group="4" contype="1" conaffinity="1" />
-        <default class="collision">
-            <geom conaffinity="0" group="4" type="mesh" solref="0.005 1" solimp="0.95 0.99 0.001" />
+        <joint limited="true" margin="0.01" armature="0.001" damping="0.05" frictionloss="0.001" />
+        <default class="pid">
+            <position
+                kp="1000" kv="100" />
         </default>
-        <default class="self_collision">
-            <geom contype="2" conaffinity="2" group="3" solref="0.005 1" solimp="0.95 0.99 0.001"
-                rgba="1.0 0.0 0.0 0.8" />
+        <geom friction="1 0.5 0.01" margin="0.0005" />
+        <site size="0.005 0 0" rgba="0.4 0.9 0.4 0" />
+        <general ctrllimited="true" ctrlrange="-1 1"
+            user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+        <default class="touch">
+            <site size="0.009 0.004 0.013" group="4" type="box" rgba="0.0 0.0 0.0 0.0" />
+            <general
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
+        </default>
+        <default class="collision">
+            <geom conaffinity="0" group="4" material="MatColl" solref="0.004 1"
+                solimp="0.90 0.95 0.001 0.5 2" />
+            <general
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
         </default>
         <default class="visual">
-            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.5 0.5 0.5 1" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" material="MatViz" />
+            <general
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
         </default>
         <default class="free">
             <joint type="free" limited="false" armature="0" damping="0" />
+            <general
+                user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
         </default>
     </default>
 
@@ -142,15 +157,60 @@
     </actuator>
 
     <sensor>
-        <framepos name="base_link_pos" objtype="site" objname="palm_lower_site" />
+        <!-- <framepos name="base_link_pos" objtype="site" objname="palm_lower_site" />
         <framequat name="base_link_quat" objtype="site" objname="palm_lower_site" />
         <framelinvel name="base_link_vel" objtype="site" objname="palm_lower_site" />
-        <frameangvel name="base_link_ang_vel" objtype="site" objname="palm_lower_site" />
-    </sensor>
+        <frameangvel name="base_link_ang_vel" objtype="site" objname="palm_lower_site" /> -->
 
+        <actuatorfrc actuator="index_pip_flex_joint_ctrl" name="Saf_index_pip_flex_joint_ctrl" />
+        <actuatorfrc actuator="index_pip_abb_joint_ctrl" name="Saf_index_pip_abb_joint_ctrl" />
+        <actuatorfrc actuator="index_mcp_joint_ctrl" name="Saf_index_mcp_joint_ctrl" />
+        <actuatorfrc actuator="index_dip_joint_ctrl" name="Saf_index_dip_joint_ctrl" />
+        <actuatorfrc actuator="middle_pip_flex_joint_ctrl" name="Saf_middle_pip_flex_joint_ctrl" />
+        <actuatorfrc actuator="middle_pip_abb_joint_ctrl" name="Saf_middle_pip_abb_joint_ctrl" />
+        <actuatorfrc actuator="middle_mcp_joint_ctrl" name="Saf_middle_mcp_joint_ctrl" />
+        <actuatorfrc actuator="middle_dip_joint_ctrl" name="Saf_middle_dip_joint_ctrl" />
+        <actuatorfrc actuator="ring_pip_flex_joint_ctrl" name="Saf_ring_pip_flex_joint_ctrl" />
+        <actuatorfrc actuator="ring_pip_abb_joint_ctrl" name="Saf_ring_pip_abb_joint_ctrl" />
+        <actuatorfrc actuator="ring_mcp_joint_ctrl" name="Saf_ring_mcp_joint_ctrl" />
+        <actuatorfrc actuator="ring_dip_joint_ctrl" name="Saf_ring_dip_joint_ctrl" />
+        <actuatorfrc actuator="thumb_cmc_abb_joint_ctrl" name="Saf_thumb_cmc_abb_joint_ctrl" />
+        <actuatorfrc actuator="thumb_cmc_flex_joint_ctrl" name="Saf_thumb_cmc_flex_joint_ctrl" />
+        <actuatorfrc actuator="thumb_mcp_joint_ctrl" name="Saf_thumb_mcp_joint_ctrl" />
+        <actuatorfrc actuator="thumb_ip_joint_ctrl" name="Saf_thumb_ip_joint_ctrl" />
+
+        <!-- ======= Touch Sensors ======= -->
+
+        <touch name="ST_palm_lower" site="palm_lower_site" />
+        <touch name="ST_index_fingertip_site" site="index_fingertip_site" />
+        <touch name="ST_middle_fingertip_site" site="middle_fingertip_site" />
+        <touch name="ST_ring_fingertip_site" site="ring_fingertip_site" />
+        <touch name="ST_thumb_fingertip_site" site="thumb_fingertip_site" />
+
+        <jointpos joint="index_pip_flex_joint" name="Sjp_index_pip_flex_joint" />
+        <jointpos joint="index_pip_abb_joint" name="Sjp_index_pip_abb_joint" />
+        <jointpos joint="index_mcp_joint" name="Sjp_index_mcp_joint" />
+        <jointpos joint="index_dip_joint" name="Sjp_index_dip_joint" />
+        <jointpos joint="middle_pip_flex_joint" name="Sjp_middle_pip_flex_joint" />
+        <jointpos joint="middle_pip_abb_joint" name="Sjp_middle_pip_abb_joint" />
+        <jointpos joint="middle_mcp_joint" name="Sjp_middle_mcp_joint" />
+        <jointpos joint="middle_dip_joint" name="Sjp_middle_dip_joint" />
+        <jointpos joint="ring_pip_flex_joint" name="Sjp_ring_pip_flex_joint" />
+        <jointpos joint="ring_pip_abb_joint" name="Sjp_ring_pip_abb_joint_" />
+        <jointpos joint="ring_mcp_joint" name="Sjp_ring_mcp_joint" />
+        <jointpos joint="ring_dip_joint" name="Sjp_ring_dip_joint" />
+        <jointpos joint="thumb_cmc_abb_joint" name="Sjp_thumb_cmc_abb_joint" />
+        <jointpos joint="thumb_cmc_flex_joint" name="Sjp_thumb_cmc_flex_joint" />
+        <jointpos joint="thumb_mcp_joint" name="Sjp_thumb_mcp_joint" />
+        <jointpos joint="thumb_ip_joint" name="Sjp_thumb_ip_joint" />
+    </sensor>
 
     <!-- self collisions -->
     <contact>
+        <pair geom1="palm_lower_collision_0" geom2="index_distal_phalanx_collision_0" condim="3"/>
+        <pair geom1="palm_lower_collision_0" geom2="middle_distal_phalanx_collision_0" condim="3"/>
+        <pair geom1="palm_lower_collision_0" geom2="ring_distal_phalanx_collision_0" condim="3"/>
+        <pair geom1="palm_lower_collision_0" geom2="thumb_distal_phalanx_collision_0" condim="3"/>
 
         <!-- <pair geom1="back_right_leg_a_c0" geom2="back_right_leg_b_motor_c0" condim="3"/>
         <pair geom1="back_right_leg_a_c0" geom2="back_right_leg_b_motor_c1" condim="3"/>

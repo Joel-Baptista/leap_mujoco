@@ -22,7 +22,7 @@ def main():
         while True:
             
             # x, rb_trace = minimize.least_squares(x0, optimize_torque)
-            
+            print(data.sensordata, " -> ", len(data.sensordata))
             action = [30, 60, -30, -60, 80, -45, -80, 45, 0, 0, 0, 0]
             action = np.array(action) * DEG2RAD
             
