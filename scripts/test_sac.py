@@ -38,25 +38,26 @@ def main():
     
     cummulative_reward = 0
 
-    for _ in range(1000):
-        action, _ = agent.predict(obs, deterministic=True)
+    for e in range(0, 5): 
+        for _ in range(200):
+            action, _ = agent.predict(obs, deterministic=True)
 
-        # print("Action:", action)
+            # print("Action:", action)
 
-        obs, reward, terminated, truncated, info = env.step(action)
-        cummulative_reward += reward
-        # print("Observation:", obs[2])
-        # print(info)
-        env.render()
-        # time.sleep(0.001)
+            obs, reward, terminated, truncated, info = env.step(action)
+            cummulative_reward += reward
+            # print("Observation:", obs[2])
+            # print(info)
+            env.render()
+            # time.sleep(0.001)
 
-        if terminated or truncated:
-            print("--------------------------------------------------------")
-            obs, info = env.reset()
+            if terminated or truncated:
+                print("--------------------------------------------------------")
+                obs, info = env.reset()
 
     env.close()
 
-    print("Cummulative Reward: ", cummulative_reward)
+    print("Episode Reward: ", cummulative_reward / e)
 
 if __name__ == "__main__":
     main()
