@@ -1,232 +1,226 @@
 <mujocoinclude>
-    <!-- <light directional='false' diffuse='.7 .7 .7' specular='0.03 0.03 0.03' pos='-1 -1.0 4.0'
-      dir='1 1.0 -4' />
-    <geom name='ground' size="1.5 1.5 0.25" type="plane" contype="1" conaffinity="1"
-      material="MatPlane" pos="0 0 0" rgba="0.8 0.9 0.8 1" class="collision" />
-    <geom size="1.5 1.5 0.25" type="plane" material="MatPlane" pos="0 0 0" rgba="0.8 0.9 0.8 1"
+  <body name="palm_lower" pos="0 0 0" quat="1 0 0 0">
+    <site name="palm_lower_site" pos="-0.065 -0.055 -0.03" type="box" quat="1 0 0 0"
+      size="0.025 0.025 0.01" class="touch" />
+    <site name="S_grasp" type="sphere" size="0.01" pos="-0.05 -0.04 -0.03"
+      quat="0.0087 -0.6 -0.0034 -0.81" />
+    <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.237"
+      diaginertia="0.000354094 0.000260915 0.000529257" />
+    <geom name="palm_lower_collision_0"
+      pos="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134"
+      quat="1.0 0.0 0.0 0.0" type="mesh" mesh="palm_lower_collision.stl" class="collision" />
+    <geom name="palm_lower_visual_0"
+      pos="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134"
+      quat="1.0 0.0 0.0 0.0" material="palm_lower_material" type="mesh" mesh="palm_lower.stl"
       class="visual" />
-    <camera name="fixed" pos="0 -0.7 0.7" quat="0.92388 0.382683 0 0" />
-    <camera name="vil_camera" pos="0 -1.2 1.2" quat="0.92388 0.382683 0 0" />
-    <geom name="x_axis" type="box" size="5 0.005 0.005" rgba="1.0 0.0 0.0 1.0" pos="5.0 0.0 0.0"
-      class="visual" /> -->
-      <body name="palm_lower" pos="0 0 0" quat="1 0 0 0">
-        <site name="palm_lower_site" pos="-0.065 -0.055 -0.03" type="box" quat="1 0 0 0" size="0.025 0.025 0.01"  class="touch"/>
-        <site name="S_grasp"  type="sphere" size="0.01" pos="-0.05 -0.04 -0.03" quat="0.0087 -0.6 -0.0034 -0.81" />
-        <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.237"
-          diaginertia="0.000354094 0.000260915 0.000529257" />
-        <geom name="palm_lower_collision_0"
-          pos="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134"
-          quat="1.0 0.0 0.0 0.0" type="mesh" mesh="palm_lower_collision.stl" class="collision" />
-        <geom name="palm_lower_visual_0"
-          pos="-0.020095249652862544332 0.025757756134899473244 -0.034722403578460216134"
-          quat="1.0 0.0 0.0 0.0" material="palm_lower_material" type="mesh" mesh="palm_lower.stl"
+    <body name="index_proximal_phalanx_1"
+      pos="-0.007095249652862546 0.023057756134899472 -0.01872240357846022"
+      quat="0.5000000000000009 0.5000000000000001 0.4999999999999999 -0.49999999999999906">
+      <joint name="index_pip_flex_joint" type="hinge" range="-0.314 2.23" axis="0 0 -1" />
+      <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.044"
+        diaginertia="1.1499e-05 7.796e-06 1.4759e-05" />
+      <geom name="index_proximal_phalanx_1_collision_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" type="mesh" mesh="proximal_phalanx_1_collision.stl"
+        class="collision" />
+      <geom name="index_proximal_phalanx_1_visual_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
+        mesh="proximal_phalanx_1.stl" class="visual" />
+      <!-- <geom name="index_proximal_phalanx_1_motor_collision_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
+        mesh="proximal_phalanx_1_motor_collision.stl" class="visual" />
+      <geom name="index_proximal_phalanx_1_connection_collision_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
+        mesh="proximal_phalanx_1_connection_collision.stl" class="visual" /> -->
+      <body name="index_proximal_phalanx_2" pos="-0.0122 0.0381 0.0145"
+        quat="0.5000000000000007 -0.5000000000000006 -0.4999999999999994 0.49999999999999944">
+        <joint name="index_pip_abb_joint" type="hinge" range="-1.378810 1.378810" axis="0 0 -1" />
+        <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
+          diaginertia="4.798e-06 2.862e-06 4.234e-06" />
+        <geom name="index_proximal_phalanx_2_collision_0" pos="0.009643 0.0003 0.000784"
+          quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
+          mesh="proximal_phalanx_2_collision.stl" class="collision" />
+        <geom name="index_proximal_phalanx_2_visual_0" pos="0.009643 0.0003 0.000784"
+          quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
+          material="proximal_phalanx_2_material" type="mesh" mesh="proximal_phalanx_2.stl"
           class="visual" />
-        <body name="index_proximal_phalanx_1"
-          pos="-0.007095249652862546 0.023057756134899472 -0.01872240357846022"
-          quat="0.5000000000000009 0.5000000000000001 0.4999999999999999 -0.49999999999999906">
-          <joint name="index_pip_flex_joint" type="hinge" range="-0.314 2.23" axis="0 0 -1" />
-          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.044"
-            diaginertia="1.1499e-05 7.796e-06 1.4759e-05" />
-          <geom name="index_proximal_phalanx_1_collision_0" pos="0.008407 0.007766 0.014657"
-            quat="1.0 0.0 0.0 0.0" type="mesh" mesh="proximal_phalanx_1_collision.stl"
-            class="collision" />
-          <geom name="index_proximal_phalanx_1_collision_1" pos="-0.0 0.007 0.014"
-            quat="1.0 0.0 0.0 0.0" type="box" size="0.01125 0.015 0.0175" rgba="0 0 0 0" />
-          <geom name="index_proximal_phalanx_1_visual_0" pos="0.008407 0.007766 0.014657"
-            quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
-            mesh="proximal_phalanx_1.stl" class="visual" />
-          <body name="index_proximal_phalanx_2" pos="-0.0122 0.0381 0.0145"
-            quat="0.5000000000000007 -0.5000000000000006 -0.4999999999999994 0.49999999999999944">
-            <joint name="index_pip_abb_joint" type="hinge" range="-1.047 1.047" axis="0 0 -1" />
-            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
-              diaginertia="4.798e-06 2.862e-06 4.234e-06" />
-            <geom name="index_proximal_phalanx_2_collision_0" pos="0.009643 0.0003 0.000784"
-              quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
-              mesh="proximal_phalanx_2_collision.stl" class="collision" />
-            <geom name="index_proximal_phalanx_2_visual_0" pos="0.009643 0.0003 0.000784"
-              quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
-              material="proximal_phalanx_2_material" type="mesh" mesh="proximal_phalanx_2.stl"
-              class="visual" />
-            <body name="index_middle_phalanx" pos="0.015 0.0143 -0.013"
-              quat="0.5000000000000002 0.49999999999999983 -0.5000000000000001 0.4999999999999998">
-              <joint name="index_mcp_joint" type="hinge" range="-0.506 1.885" axis="0 0 -1" />
-              <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.037"
-                diaginertia="5.542e-06 5.727e-06 6.682e-06" />
-              <geom name="index_middle_phalanx_collision_0" pos="0.021133 -0.008432 0.009785"
-                quat="6.123233995736766e-17 -1.0 0.0 0.0" type="mesh"
-                mesh="middle_phalanx_collision.stl" class="collision" />
-              <geom name="index_middle_phalanx_visual_0" pos="0.021133 -0.008432 0.009785"
-                quat="6.123233995736766e-17 -1.0 0.0 0.0" material="middle_phalanx_material"
-                type="mesh" mesh="middle_phalanx.stl" class="visual" />
-              <body name="index_distal_phalanx" pos="0 -0.0361 0.0002" quat="1.0 0.0 0.0 0.0">
-                <site name="index_fingertip_site" pos="-0.01 -0.035 0.0145" quat="1 0 0 0" size="0.01" class="touch"/>
-                <joint name="index_dip_joint" type="hinge" range="-0.366 2.042" axis="0 0 -1" />
-                <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.016"
-                  diaginertia="3.368e-06 1.556e-06 2.863e-06" />
-                <geom name="index_distal_phalanx_collision_0" pos="0.013286 -0.006114 0.0145"
-                  quat="6.123233995736766e-17 1.0 0.0 0.0" type="mesh"
-                  mesh="distal_phalanx_collision.stl" class="collision" />
-                <geom name="index_distal_phalanx_visual_0" pos="0.0132864 -0.006114 0.0145"
-                  quat="6.123233995736766e-17 1.0 0.0 0.0" material="distal_phalanx_material"
-                  type="mesh" mesh="distal_phalanx.stl" class="visual" />
-              </body>
-            </body>
-          </body>
-        </body>
-        <body name="middle_proximal_phalanx_1"
-          pos="-0.007095249652862546 -0.022392243865100525 -0.01872240357846022"
-          quat="0.5000000000000009 0.5000000000000001 0.4999999999999999 -0.49999999999999906">
-          <joint name="middle_pip_flex_joint" type="hinge" range="-0.314 2.23" axis="0 0 -1" />
-          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.044"
-            diaginertia="1.1499e-05 7.796e-06 1.4759e-05" />
-          <geom name="middle_proximal_phalanx_1_collision_0" pos="0.008407 0.007766 0.014657"
-            quat="1.0 0.0 0.0 0.0" type="mesh" mesh="proximal_phalanx_1_collision.stl"
-            class="collision" />
-          <geom name="middle_proximal_phalanx_1_collision_1" pos="-0.0 0.007 0.014"
-            quat="1.0 0.0 0.0 0.0" type="box" size="0.01125 0.015 0.0175" rgba="0 0 0 0" />
-          <geom name="middle_proximal_phalanx_1_visual_0" pos="0.008407 0.007766 0.014657"
-            quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
-            mesh="proximal_phalanx_1.stl" class="visual" />
-          <body name="middle_proximal_phalanx_2" pos="-0.0122 0.0381 0.0145"
-            quat="0.5000000000000007 -0.5000000000000006 -0.4999999999999994 0.49999999999999944">
-            <joint name="middle_pip_abb_joint" type="hinge" range="-1.047 1.047" axis="0 0 -1" />
-            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
-              diaginertia="4.798e-06 2.862e-06 4.234e-06" />
-            <geom name="middle_proximal_phalanx_2_collision_0" pos="0.009643 0.0003 0.000784"
-              quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
-              mesh="proximal_phalanx_2_collision.stl" rgba="0 0 0 0" />
-            <geom name="middle_proximal_phalanx_2_visual_0" pos="0.009643 0.0003 0.000784"
-              quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
-              material="proximal_phalanx_2_material" type="mesh" mesh="proximal_phalanx_2.stl"
-              class="visual" />
-            <body name="middle_middle_phalanx" pos="0.015 0.0143 -0.013"
-              quat="0.5000000000000002 0.49999999999999983 -0.5000000000000001 0.4999999999999998">
-              <joint name="middle_mcp_joint" type="hinge" range="-0.506 1.885" axis="0 0 -1" />
-              <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.037"
-                diaginertia="5.542e-06 5.727e-06 6.682e-06" />
-              <geom name="middle_middle_phalanx_collision_0" pos="0.021133 -0.008432 0.009785"
-                quat="6.123233995736766e-17 -1.0 0.0 0.0" type="mesh"
-                mesh="middle_phalanx_collision.stl" rgba="0 0 0 0" />
-              <geom name="middle_middle_phalanx_visual_0" pos="0.021133 -0.008432 0.009785"
-                quat="6.123233995736766e-17 -1.0 0.0 0.0" material="middle_phalanx_material"
-                type="mesh" mesh="middle_phalanx.stl" class="visual" />
-              <body name="middle_distal_phalanx" pos="0 -0.0361 0.0002" quat="1.0 0.0 0.0 0.0">
-                <site name="middle_fingertip_site" pos="-0.01 -0.035 0.0145" quat="1 0 0 0" size="0.01" class="touch"/>
-                <joint name="middle_dip_joint" type="hinge" range="-0.366 2.042" axis="0 0 -1" />
-                <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.016"
-                  diaginertia="3.368e-06 1.556e-06 2.863e-06" />
-                <geom name="middle_distal_phalanx_collision_0" pos="0.013286 -0.006114 0.0145"
-                  quat="6.123233995736766e-17 1.0 0.0 0.0" type="mesh"
-                  mesh="distal_phalanx_collision.stl" rgba="0 0 0 0" />
-                <geom name="middle_distal_phalanx_visual_0" pos="0.0132864 -0.006114 0.0145"
-                  quat="6.123233995736766e-17 1.0 0.0 0.0" material="distal_phalanx_material"
-                  type="mesh" mesh="distal_phalanx.stl" class="visual" />
-              </body>
-            </body>
-          </body>
-        </body>
-        <body name="ring_proximal_phalanx_1"
-          pos="-0.007095249652862546 -0.06784224386510052 -0.01872240357846022"
-          quat="0.5000000000000009 0.5000000000000001 0.4999999999999999 -0.49999999999999906">
-          <joint name="ring_pip_flex_joint" type="hinge" range="-0.314 2.23" axis="0 0 -1" />
-          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.044"
-            diaginertia="1.1499e-05 7.796e-06 1.4759e-05" />
-          <geom name="ring_proximal_phalanx_1_collision_0" pos="0.008407 0.007766 0.014657"
-            quat="1.0 0.0 0.0 0.0" type="mesh" mesh="proximal_phalanx_1_collision.stl"
-            class="collision" />
-          <geom name="ring_proximal_phalanx_1_collision_1" pos="-0.0 0.007 0.014"
-            quat="1.0 0.0 0.0 0.0" type="box" size="0.01125 0.015 0.0175" class="collision" />
-          <geom name="ring_proximal_phalanx_1_visual_0" pos="0.008407 0.007766 0.014657"
-            quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
-            mesh="proximal_phalanx_1.stl" class="visual" />
-          <body name="ring_proximal_phalanx_2" pos="-0.0122 0.0381 0.0145"
-            quat="0.5000000000000007 -0.5000000000000006 -0.4999999999999994 0.49999999999999944">
-            <joint name="ring_pip_abb_joint" type="hinge" range="-1.047 1.047" axis="0 0 -1" />
-            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
-              diaginertia="4.798e-06 2.862e-06 4.234e-06" />
-            <geom name="ring_proximal_phalanx_2_collision_0" pos="0.009643 0.0003 0.000784"
-              quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
-              mesh="proximal_phalanx_2_collision.stl" class="collision" />
-            <geom name="ring_proximal_phalanx_2_visual_0" pos="0.009643 0.0003 0.000784"
-              quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
-              material="proximal_phalanx_2_material" type="mesh" mesh="proximal_phalanx_2.stl"
-              class="visual" />
-            <body name="ring_middle_phalanx" pos="0.015 0.0143 -0.013"
-              quat="0.5000000000000002 0.49999999999999983 -0.5000000000000001 0.4999999999999998">
-              <joint name="ring_mcp_joint" type="hinge" range="-0.506 1.885" axis="0 0 -1" />
-              <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.037"
-                diaginertia="5.542e-06 5.727e-06 6.682e-06" />
-              <geom name="ring_middle_phalanx_collision_0" pos="0.021133 -0.008432 0.009785"
-                quat="6.123233995736766e-17 -1.0 0.0 0.0" type="mesh"
-                mesh="middle_phalanx_collision.stl" class="collision" />
-              <geom name="ring_middle_phalanx_visual_0" pos="0.021133 -0.008432 0.009785"
-                quat="6.123233995736766e-17 -1.0 0.0 0.0" material="middle_phalanx_material"
-                type="mesh" mesh="middle_phalanx.stl" class="visual" />
-              <body name="ring_distal_phalanx" pos="0 -0.0361 0.0002" quat="1.0 0.0 0.0 0.0">
-                <site name="ring_fingertip_site" pos="-0.01 -0.035 0.0145" quat="1 0 0 0" size="0.01" class="touch"/>
-                <joint name="ring_dip_joint" type="hinge" range="-0.366 2.042" axis="0 0 -1" />
-                <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.016"
-                  diaginertia="3.368e-06 1.556e-06 2.863e-06" />
-                <geom name="ring_distal_phalanx_collision_0" pos="0.013286 -0.006114 0.0145"
-                  quat="6.123233995736766e-17 1.0 0.0 0.0" type="mesh"
-                  mesh="distal_phalanx_collision.stl" class="collision" />
-                <geom name="ring_distal_phalanx_visual_0" pos="0.0132864 -0.006114 0.0145"
-                  quat="6.123233995736766e-17 1.0 0.0 0.0" material="distal_phalanx_material"
-                  type="mesh" mesh="distal_phalanx.stl" class="visual" />
-              </body>
-            </body>
-          </body>
-        </body>
-        <body name="thumb_semi_palm_1" pos="-0.069395 -0.001242 -0.0216224"
-          quat="0.7071067811865479 0.0 0.7071067811865472 0.0">
-          <joint name="thumb_cmc_abb_joint" type="hinge" range="-0.349 2.094" axis="0 0 -1" />
-          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
-            diaginertia="4.798e-06 2.862e-06 4.234e-06" />
-          <geom name="thumb_semi_palm_1_collision_0" pos="-0.005356 0.0003 0.000784"
-            quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
-            mesh="proximal_phalanx_2_collision.stl" class="collision" />
-          <geom name="thumb_semi_palm_1_visual_0" pos="-0.005356 0.0003 0.000784"
-            quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
-            material="thumb_semi_palm_2_material" type="mesh" mesh="proximal_phalanx_2.stl"
-            class="visual" />
-          <body name="thumb_semi_palm_2" pos="0 0.0143 -0.013"
-            quat="0.5000000000000003 0.5 0.5 -0.4999999999999996">
-            <joint name="thumb_cmc_flex_joint" type="hinge" range="-2.47 2.443" axis="0 0 -1" />
-            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.003"
-              diaginertia="5.93e-07 5.49e-07 2.24e-07" />
-            <geom name="thumb_semi_palm_2_collision_0" pos="0.011962 0 -0.015853"
-              quat="0.7071067811865476 0.7071067811865475 0.0 0.0" type="mesh"
-              mesh="thumb_semi_palm_collision.stl" class="collision" />
-            <geom name="thumb_semi_palm_2_visual_0" pos="0.011962 0 -0.0158526"
-              quat="0.7071067811865476 0.7071067811865475 0.0 0.0"
-              material="thumb_semi_palm_2_material" type="mesh" mesh="thumb_semi_palm.stl"
-              class="visual" />
-            <body name="thumb_middle_phalanx" pos="0 0.0145 -0.017"
-              quat="0.7071067811865476 -0.7071067811865475 0.0 0.0">
-              <joint name="thumb_mcp_joint" type="hinge" range="-1.20 1.90" axis="0 0 -1" />
-              <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.038"
-              diaginertia="8.474e-06 3.841e-06 7.679e-06" />
-              <geom name="thumb_middle_phalanx_collision_0" pos="0.0439687 0.057953 -0.008629"
-              quat="1.0 0.0 0.0 0.0" type="mesh" mesh="thumb_middle_phalanx_collision.stl"
-              class="collision" />
-              <geom name="thumb_middle_phalanx_visual_0" pos="0.0439687 0.057953 -0.008629"
-              quat="1.0 0.0 0.0 0.0" material="thumb_middle_phalanx_material" type="mesh"
-              mesh="thumb_middle_phalanx.stl" class="visual" />
-              <body name="thumb_distal_phalanx" pos="0 0.0466 0.0002"
-              quat="6.123233995736766e-17 0.0 0.0 1.0">
-                <site name="thumb_fingertip_site" pos="-0.01 -0.05 -0.015" quat="1 0 0 0" size="0.01" class="touch" />
-                <joint name="thumb_ip_joint" type="hinge" range="-1.34 1.88" axis="0 0 -1" />
-                <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.049"
-                  diaginertia="2.0372e-05 4.336e-06 1.9845e-05" />
-                <geom name="thumb_distal_phalanx_collision_0" pos="0.06256 0.07846 0.048993"
-                  quat="1.0 0.0 0.0 0.0" type="mesh" mesh="thumb_distal_phalanx_collision.stl"
-                  class="collision" />
-                <geom name="thumb_distal_phalanx_visual_0" pos="0.06256 0.07846 0.048993"
-                  quat="1.0 0.0 0.0 0.0" material="thumb_distal_phalanx_material" type="mesh"
-                  mesh="thumb_distal_phalanx.stl" class="visual" />
-              </body>
-            </body>
+        <body name="index_middle_phalanx" pos="0.015 0.0143 -0.013"
+          quat="0.5000000000000002 0.49999999999999983 -0.5000000000000001 0.4999999999999998">
+          <joint name="index_mcp_joint" type="hinge" range="-0.45379 2.44346" axis="0 0 -1" />
+          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.037"
+            diaginertia="5.542e-06 5.727e-06 6.682e-06" />
+          <geom name="index_middle_phalanx_collision_0" pos="0.021133 -0.008432 0.009785"
+            quat="6.123233995736766e-17 -1.0 0.0 0.0" type="mesh"
+            mesh="middle_phalanx_collision.stl" class="collision" />
+          <geom name="index_middle_phalanx_visual_0" pos="0.021133 -0.008432 0.009785"
+            quat="6.123233995736766e-17 -1.0 0.0 0.0" material="middle_phalanx_material"
+            type="mesh" mesh="middle_phalanx.stl" class="visual" />
+          <body name="index_distal_phalanx" pos="0 -0.0361 0.0002" quat="1.0 0.0 0.0 0.0">
+            <site name="index_fingertip_site" pos="-0.01 -0.035 0.0145" quat="1 0 0 0" size="0.01"
+              class="touch" />
+            <joint name="index_dip_joint" type="hinge" range="-0.3490 1.867502" axis="0 0 -1" />
+            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.016"
+              diaginertia="3.368e-06 1.556e-06 2.863e-06" />
+            <geom name="index_distal_phalanx_collision_0" pos="0.013286 -0.006114 0.0145"
+              quat="6.123233995736766e-17 1.0 0.0 0.0" type="mesh"
+              mesh="distal_phalanx_collision.stl" class="collision" />
+            <geom name="index_distal_phalanx_visual_0" pos="0.0132864 -0.006114 0.0145"
+              quat="6.123233995736766e-17 1.0 0.0 0.0" material="distal_phalanx_material"
+              type="mesh" mesh="distal_phalanx.stl" class="visual" />
           </body>
         </body>
       </body>
+    </body>
+    <body name="middle_proximal_phalanx_1"
+      pos="-0.007095249652862546 -0.022392243865100525 -0.01872240357846022"
+      quat="0.5000000000000009 0.5000000000000001 0.4999999999999999 -0.49999999999999906">
+      <joint name="middle_pip_flex_joint" type="hinge" range="-0.314 2.23" axis="0 0 -1" />
+      <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.044"
+        diaginertia="1.1499e-05 7.796e-06 1.4759e-05" />
+      <geom name="middle_proximal_phalanx_1_collision_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" type="mesh" mesh="proximal_phalanx_1_collision.stl"
+        class="collision" />
+      <geom name="middle_proximal_phalanx_1_visual_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
+        mesh="proximal_phalanx_1.stl" class="visual" />
+      <body name="middle_proximal_phalanx_2" pos="-0.0122 0.0381 0.0145"
+        quat="0.5000000000000007 -0.5000000000000006 -0.4999999999999994 0.49999999999999944">
+        <joint name="middle_pip_abb_joint" type="hinge" range="-1.378810 1.378810" axis="0 0 -1" />
+        <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
+          diaginertia="4.798e-06 2.862e-06 4.234e-06" />
+        <geom name="middle_proximal_phalanx_2_collision_0" pos="0.009643 0.0003 0.000784"
+          quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
+          mesh="proximal_phalanx_2_collision.stl" rgba="0 0 0 0" />
+        <geom name="middle_proximal_phalanx_2_visual_0" pos="0.009643 0.0003 0.000784"
+          quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
+          material="proximal_phalanx_2_material" type="mesh" mesh="proximal_phalanx_2.stl"
+          class="visual" />
+        <body name="middle_middle_phalanx" pos="0.015 0.0143 -0.013"
+          quat="0.5000000000000002 0.49999999999999983 -0.5000000000000001 0.4999999999999998">
+          <joint name="middle_mcp_joint" type="hinge" range="-0.45379 2.44346" axis="0 0 -1" />
+          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.037"
+            diaginertia="5.542e-06 5.727e-06 6.682e-06" />
+          <geom name="middle_middle_phalanx_collision_0" pos="0.021133 -0.008432 0.009785"
+            quat="6.123233995736766e-17 -1.0 0.0 0.0" type="mesh"
+            mesh="middle_phalanx_collision.stl" rgba="0 0 0 0" />
+          <geom name="middle_middle_phalanx_visual_0" pos="0.021133 -0.008432 0.009785"
+            quat="6.123233995736766e-17 -1.0 0.0 0.0" material="middle_phalanx_material"
+            type="mesh" mesh="middle_phalanx.stl" class="visual" />
+          <body name="middle_distal_phalanx" pos="0 -0.0361 0.0002" quat="1.0 0.0 0.0 0.0">
+            <site name="middle_fingertip_site" pos="-0.01 -0.035 0.0145" quat="1 0 0 0" size="0.01"
+              class="touch" />
+            <joint name="middle_dip_joint" type="hinge" range="-0.3490 1.867502" axis="0 0 -1" />
+            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.016"
+              diaginertia="3.368e-06 1.556e-06 2.863e-06" />
+            <geom name="middle_distal_phalanx_collision_0" pos="0.013286 -0.006114 0.0145"
+              quat="6.123233995736766e-17 1.0 0.0 0.0" type="mesh"
+              mesh="distal_phalanx_collision.stl" rgba="0 0 0 0" />
+            <geom name="middle_distal_phalanx_visual_0" pos="0.0132864 -0.006114 0.0145"
+              quat="6.123233995736766e-17 1.0 0.0 0.0" material="distal_phalanx_material"
+              type="mesh" mesh="distal_phalanx.stl" class="visual" />
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="ring_proximal_phalanx_1"
+      pos="-0.007095249652862546 -0.06784224386510052 -0.01872240357846022"
+      quat="0.5000000000000009 0.5000000000000001 0.4999999999999999 -0.49999999999999906">
+      <joint name="ring_pip_flex_joint" type="hinge" range="-0.314 2.23" axis="0 0 -1" />
+      <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.044"
+        diaginertia="1.1499e-05 7.796e-06 1.4759e-05" />
+      <geom name="ring_proximal_phalanx_1_collision_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" type="mesh" mesh="proximal_phalanx_1_collision.stl"
+        class="collision" />
+      <geom name="ring_proximal_phalanx_1_visual_0" pos="0.008407 0.007766 0.014657"
+        quat="1.0 0.0 0.0 0.0" material="proximal_phalanx_1_material" type="mesh"
+        mesh="proximal_phalanx_1.stl" class="visual" />
+      <body name="ring_proximal_phalanx_2" pos="-0.0122 0.0381 0.0145"
+        quat="0.5000000000000007 -0.5000000000000006 -0.4999999999999994 0.49999999999999944">
+        <joint name="ring_pip_abb_joint" type="hinge" range="-1.378810 1.378810" axis="0 0 -1" />
+        <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
+          diaginertia="4.798e-06 2.862e-06 4.234e-06" />
+        <geom name="ring_proximal_phalanx_2_collision_0" pos="0.009643 0.0003 0.000784"
+          quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
+          mesh="proximal_phalanx_2_collision.stl" class="collision" />
+        <geom name="ring_proximal_phalanx_2_visual_0" pos="0.009643 0.0003 0.000784"
+          quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
+          material="proximal_phalanx_2_material" type="mesh" mesh="proximal_phalanx_2.stl"
+          class="visual" />
+        <body name="ring_middle_phalanx" pos="0.015 0.0143 -0.013"
+          quat="0.5000000000000002 0.49999999999999983 -0.5000000000000001 0.4999999999999998">
+          <joint name="ring_mcp_joint" type="hinge" range="-0.45379 2.44346" axis="0 0 -1" />
+          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.037"
+            diaginertia="5.542e-06 5.727e-06 6.682e-06" />
+          <geom name="ring_middle_phalanx_collision_0" pos="0.021133 -0.008432 0.009785"
+            quat="6.123233995736766e-17 -1.0 0.0 0.0" type="mesh"
+            mesh="middle_phalanx_collision.stl" class="collision" />
+          <geom name="ring_middle_phalanx_visual_0" pos="0.021133 -0.008432 0.009785"
+            quat="6.123233995736766e-17 -1.0 0.0 0.0" material="middle_phalanx_material"
+            type="mesh" mesh="middle_phalanx.stl" class="visual" />
+          <body name="ring_distal_phalanx" pos="0 -0.0361 0.0002" quat="1.0 0.0 0.0 0.0">
+            <site name="ring_fingertip_site" pos="-0.01 -0.035 0.0145" quat="1 0 0 0" size="0.01"
+              class="touch" />
+            <joint name="ring_dip_joint" type="hinge" range="-0.3490 1.867502" axis="0 0 -1" />
+            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.016"
+              diaginertia="3.368e-06 1.556e-06 2.863e-06" />
+            <geom name="ring_distal_phalanx_collision_0" pos="0.013286 -0.006114 0.0145"
+              quat="6.123233995736766e-17 1.0 0.0 0.0" type="mesh"
+              mesh="distal_phalanx_collision.stl" class="collision" />
+            <geom name="ring_distal_phalanx_visual_0" pos="0.0132864 -0.006114 0.0145"
+              quat="6.123233995736766e-17 1.0 0.0 0.0" material="distal_phalanx_material"
+              type="mesh" mesh="distal_phalanx.stl" class="visual" />
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="thumb_semi_palm_1" pos="-0.069395 -0.001242 -0.0216224"
+      quat="0.7071067811865479 0.0 0.7071067811865472 0.0">
+      <joint name="thumb_cmc_abb_joint" type="hinge" range="-0.38397 2.02458" axis="0 0 -1" />
+      <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.032"
+        diaginertia="4.798e-06 2.862e-06 4.234e-06" />
+      <geom name="thumb_semi_palm_1_collision_0" pos="-0.005356 0.0003 0.000784"
+        quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999" type="mesh"
+        mesh="proximal_phalanx_2_collision.stl" rgba="0 0 0 0" />
+      <geom name="thumb_semi_palm_1_visual_0" pos="-0.005356 0.0003 0.000784"
+        quat="0.5000000000000001 -0.5 -0.5 -0.4999999999999999"
+        material="thumb_semi_palm_2_material" type="mesh" mesh="proximal_phalanx_2.stl" />
+      <body name="thumb_semi_palm_2" pos="0 0.0143 -0.013"
+        quat="0.5000000000000003 0.5 -0.5 0.4999999999999996">
+        <joint name="thumb_cmc_flex_joint" type="hinge" range="-0.7854 1.570796" axis="0 0 -1" />
+        <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.003"
+          diaginertia="5.93e-07 5.49e-07 2.24e-07" />
+        <geom name="thumb_semi_palm_2_collision_0" pos="0.011962 0 -0.015853"
+          quat="0.7071067811865476 0.7071067811865475 0.0 0.0" type="mesh"
+          mesh="thumb_semi_palm_collision.stl" rgba="0 0 0 0" />
+        <geom name="thumb_semi_palm_2_visual_0" pos="0.011962 0 -0.0158526"
+          quat="0.7071067811865476 0.7071067811865475 0.0 0.0"
+          material="thumb_semi_palm_2_material" type="mesh" mesh="thumb_semi_palm.stl" />
+        <body name="thumb_middle_phalanx" pos="0 0.0145 -0.017"
+          quat="0.7071067811865476 -0.7071067811865475 0.0 0.0">
+          <joint name="thumb_mcp_joint" type="hinge" range="-0.2 1.7453" axis="0 0 -1" />
+          <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.038"
+            diaginertia="8.474e-06 3.841e-06 7.679e-06" />
+          <geom name="thumb_middle_phalanx_collision_0" pos="0.0439687 0.057953 -0.008629"
+            quat="1.0 0.0 0.0 0.0" type="mesh" mesh="thumb_middle_phalanx_collision.stl"
+            rgba="0 0 0 0" />
+          <geom name="thumb_middle_phalanx_visual_0" pos="0.0439687 0.057953 -0.008629"
+            quat="1.0 0.0 0.0 0.0" material="thumb_middle_phalanx_material" type="mesh"
+            mesh="thumb_middle_phalanx.stl" />
+          <body name="thumb_distal_phalanx" pos="0 0.0466 0.0002"
+            quat="6.123233995736766e-17 0.0 0.0 1.0">
+            <site name="thumb_fingertip_site" pos="-0.01 -0.05 -0.015" quat="1 0 0 0" size="0.01"
+              class="touch" />
+            <joint name="thumb_ip_joint" type="hinge" range="-0.7854 1.93731" axis="0 0 -1" />
+            <inertial pos="0 0 0" quat="1.0 0.0 0.0 0.0" mass="0.049"
+              diaginertia="2.0372e-05 4.336e-06 1.9845e-05" />
+            <geom name="thumb_distal_phalanx_collision_0" pos="0.06256 0.07846 0.048993"
+              quat="1.0 0.0 0.0 0.0" type="mesh" mesh="thumb_distal_phalanx_collision.stl"
+              rgba="0 0 0 0" />
+            <geom name="thumb_distal_phalanx_visual_0" pos="0.06256 0.07846 0.048993"
+              quat="1.0 0.0 0.0 0.0" material="thumb_distal_phalanx_material" type="mesh"
+              mesh="thumb_distal_phalanx.stl" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </body>
 </mujocoinclude>

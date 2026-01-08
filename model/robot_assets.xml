@@ -13,10 +13,10 @@
         <map force="0.1" fogend="5" />
     </visual>
     <default class="main">
-        <joint limited="true" margin="0.01" armature="0.01" damping="0.05" frictionloss="0.02" />
+        <joint limited="true" margin="0.01" armature="0.001" damping="0.02" frictionloss="0.001" />
         <default class="pid">
             <position
-                forcerange="-8.95000000 8.95000000" forcelimited="true" kp="1000" kv="20" />
+                forcerange="-.95000000 .95000000" forcelimited="true" kp="2100" kv="30" />
         </default>
         <geom friction="1 0.5 0.01" margin="0.0005" />
         <site size="0.005 0 0" rgba="0.4 0.9 0.4 0" />
@@ -28,7 +28,7 @@
                 user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
         </default>
         <default class="collision">
-            <geom conaffinity="0" group="4" material="MatColl" solref="0.004 1"
+            <geom conaffinity="0" group="4" material="MatColl" solref="0.004 1" 
                 solimp="0.90 0.95 0.001 0.5 2" />
             <general
                 user="0 1 0.03 0.0939711 0.513477 0.0358776 1.23598 8.40409 0.485031 6.04244 1.02187 0.175297 0.121642 0 0 0" />
@@ -90,6 +90,8 @@
         <mesh name="palm_lower_collision.stl" file="palm_lower_collision.stl" />
         <mesh name="palm_lower.stl" file="palm_lower.stl" />
         <mesh name="proximal_phalanx_1_collision.stl" file="proximal_phalanx_1_collision.stl" />
+        <mesh name="proximal_phalanx_1_motor_collision.stl" file="proximal_phalanx_1_motor_collision.stl" />
+        <mesh name="proximal_phalanx_1_connection_collision.stl" file="proximal_phalanx_1_connection_collision.stl" />
         <mesh name="proximal_phalanx_1.stl" file="proximal_phalanx_1.stl" />
         <mesh name="proximal_phalanx_2_collision.stl" file="proximal_phalanx_2_collision.stl" />
         <mesh name="proximal_phalanx_2.stl" file="proximal_phalanx_2.stl" />
@@ -110,47 +112,47 @@
             ctrlrange="-0.314 2.23"
             ctrllimited="true" class="pid" />
         <position name="index_pip_abb_joint_ctrl" joint="index_pip_abb_joint"
-            forcelimited="true" ctrlrange="-1.047 1.047"
+            forcelimited="true" ctrlrange="-1.378810 1.378810"
             ctrllimited="true" class="pid" />
         <position name="index_mcp_joint_ctrl" joint="index_mcp_joint"
-            ctrlrange="-0.506 1.885"
+            ctrlrange="-0.45379 2.44346"
             ctrllimited="true" class="pid"/>
         <position name="index_dip_joint_ctrl" joint="index_dip_joint"
-            ctrlrange="-0.366 2.042"
+            ctrlrange="-0.3490 1.867502"
             ctrllimited="true" class="pid"/>
         <position name="middle_pip_flex_joint_ctrl" joint="middle_pip_flex_joint"
             ctrlrange="-0.314 2.23"
             ctrllimited="true" class="pid"/>
         <position name="middle_pip_abb_joint_ctrl" joint="middle_pip_abb_joint"
-            ctrlrange="-1.047 1.047"
+            ctrlrange="-1.378810 1.378810"
             ctrllimited="true" class="pid"/>
         <position name="middle_mcp_joint_ctrl" joint="middle_mcp_joint"
-            ctrlrange="-0.506 1.885"
+            ctrlrange="-0.45379 2.44346"
             ctrllimited="true" class="pid"/>
         <position name="middle_dip_joint_ctrl" joint="middle_dip_joint"
-            ctrlrange="-0.366 2.042"
+            ctrlrange="-0.3490 1.867502"
             ctrllimited="true" class="pid"/>
         <position name="ring_pip_flex_joint_ctrl" joint="ring_pip_flex_joint"
             ctrlrange="-0.314 2.23"
             ctrllimited="true" class="pid"/>
         <position name="ring_pip_abb_joint_ctrl" joint="ring_pip_abb_joint"
-            ctrlrange="-1.047 1.047"
+            ctrlrange="-1.378810 1.378810"
             ctrllimited="true" class="pid"/>
         <position name="ring_mcp_joint_ctrl" joint="ring_mcp_joint"
-            ctrlrange="-0.506 1.885" ctrllimited="true" class="pid"/>
+            ctrlrange="-0.45379 2.44346" ctrllimited="true" class="pid"/>
         <position name="ring_dip_joint_ctrl" joint="ring_dip_joint"
-            ctrlrange="-0.366 2.042" ctrllimited="true" class="pid"/>
+            ctrlrange="-0.3490 1.867502" ctrllimited="true" class="pid"/>
         <position name="thumb_cmc_abb_joint_ctrl" joint="thumb_cmc_abb_joint"
             ctrlrange="-0.349 2.094"
             ctrllimited="true" class="pid" />
         <position name="thumb_cmc_flex_joint_ctrl" joint="thumb_cmc_flex_joint"
-            ctrlrange="-2.47 2.443"
+            ctrlrange="-0.7854 1.570796"
             ctrllimited="true" class="pid"/>
         <position name="thumb_mcp_joint_ctrl" joint="thumb_mcp_joint"
-            ctrlrange="-1.2 1.9"
+            ctrlrange="-0.2 1.7453"
             ctrllimited="true" class="pid"/>
         <position name="thumb_ip_joint_ctrl" joint="thumb_ip_joint"
-            ctrlrange="-1.34 1.88" ctrllimited="true" class="pid"/>
+            ctrlrange="-0.7854 1.93731" ctrllimited="true" class="pid"/>
     </actuator>
 
     <sensor>
@@ -217,7 +219,12 @@
         <pair geom1="middle_distal_phalanx_collision_0" geom2="thumb_distal_phalanx_collision_0" condim="3"/>
         
         <pair geom1="ring_distal_phalanx_collision_0" geom2="thumb_distal_phalanx_collision_0" condim="3"/>
-
+       
+        <!-- <pair geom1="middle_proximal_phalanx_1_collision_0" geom2="middle_proximal_phalanx_2_collision_0" condim="1"/> -->
+        <exclude body1="middle_proximal_phalanx_1" body2="middle_middle_phalanx"/>
+        <exclude body1="palm_lower" body2="thumb_semi_palm_1"/>
+        <exclude body1="palm_lower" body2="thumb_semi_palm_2"/>
+        <exclude body1="palm_lower" body2="thumb_middle_phalanx"/>
     </contact>
 
 

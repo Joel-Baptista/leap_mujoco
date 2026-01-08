@@ -37,7 +37,7 @@ def main():
     )
     
     print(agent.policy)
-    agent.learn(total_timesteps=1_000_000, callback=eval_callback)
+    agent.learn(total_timesteps=5_000_000, callback=eval_callback)
     
     test_env = LeapGrasp()
     obs = test_env.reset()

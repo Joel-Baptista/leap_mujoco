@@ -20,11 +20,12 @@ def main():
 
     with viewer.launch_passive(model, data) as v:
         while True:
-            
-            # x, rb_trace = minimize.least_squares(x0, optimize_torque)
-            # print(data.sensordata, " -> ", len(data.sensordata))
-            action = [30, 60, -30, -60, 80, -45, -80, 45, 0, 0, 0, 0]
-            action = np.array(action) * DEG2RAD
+            print(data.contact)
+
+            for contact in data.contact:
+                print(mj.mj_id2name(model, mj.mjtObj.mjOBJ_GEOM, contact.geom1))
+                print(mj.mj_id2name(model, mj.mjtObj.mjOBJ_GEOM, contact.geom2))
+                print("----------------------------------")
             
             # data.ctrl[:] = action
             mj.mj_step(model, data)
