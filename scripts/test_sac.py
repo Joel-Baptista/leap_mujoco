@@ -42,8 +42,6 @@ def main():
         for _ in range(200):
             action, _ = agent.predict(obs, deterministic=True)
 
-            # print("Action:", action)
-
             obs, reward, terminated, truncated, info = env.step(action)
             cummulative_reward += reward
             # print("Observation:", obs[2])

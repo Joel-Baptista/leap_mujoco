@@ -33,6 +33,7 @@ DEFAULT_CAMERA_CONFIG = {
 
 HAND_CONTROL_SPACE = ("joints", "delta_joints", "torques")
 
+
 class LeapGrasp(MujocoEnv, EzPickle):
     """
     ## Description
@@ -205,8 +206,8 @@ class LeapGrasp(MujocoEnv, EzPickle):
         curriculum: bool = False,
         hand_extreme_pos: bool = False,
         vel_cost_coeff: float = 0.1,
-        max_translation=0.1,
-        max_rotation=0.1,
+        max_translation=0.2,
+        max_rotation=0.5,
         test_force=0.0,
         use_quaternions=True,
         hand_control_space="joints",
@@ -219,42 +220,47 @@ class LeapGrasp(MujocoEnv, EzPickle):
         fixed_arm=False,
         **kwargs,
     ):
-        
+
         self.use_obj_id = False
         self.object_id = object_id
         if not object_set_size is None:
             if object_set_size <= object_id:
-                raise ValueError(f"Object ID must be lower than the set size ({object_id} < {object_set_size})")
+                raise ValueError(
+                    f"Object ID must be lower than the set size ({object_id} < {object_set_size})"
+                )
             self.enc_object_id = np.zeros(object_set_size)
             self.enc_object_id[object_id] = 1
             self.use_obj_id = True
-        
+
         if hand_control_space not in HAND_CONTROL_SPACE:
-            raise ValueError(f"The select control space ({hand_control_space}) for the hand is not available in {HAND_CONTROL_SPACE}")
+            raise ValueError(
+                f"The select control space ({hand_control_space}) for the hand is not available in {HAND_CONTROL_SPACE}"
+            )
 
         self.hand_control_space = hand_control_space
-        
+
         self.reset_pos = [0, 0, 0.035]
         self.obj_h = 0.035
         self.n_delta = 6
         self.hand_extreme_pos = hand_extreme_pos
-        
 
         xml_file_path = path.join(
             path.dirname(path.realpath(__file__)),
             f"../model/leap_grasp_ball.xml",
         )
-        
+
         self.use_quaternions = use_quaternions
         obs_dim = 36
-        
-        if self.use_quaternions: obs_dim+=4
-        if self.use_obj_id: obs_dim += object_set_size
+
+        if self.use_quaternions:
+            obs_dim += 4
+        if self.use_obj_id:
+            obs_dim += object_set_size
 
         observation_space = spaces.Box(
             low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float64
         )
-        
+
         self.rotate_object = rotate_object
 
         if camera_config is None:
@@ -282,7 +288,7 @@ class LeapGrasp(MujocoEnv, EzPickle):
 
         # Override action_space to -1, 1
         self.action_space = spaces.Box(
-            low=-1.0, high=1.0, dtype=np.float32, shape=self.action_space.shape
+            low=-1.0, high=1.0, dtype=np.float32, shape=(22,)
         )
         self.curriculum = curriculum
         self.success_buffer = np.zeros(100)
@@ -290,16 +296,16 @@ class LeapGrasp(MujocoEnv, EzPickle):
         self.target_obj_site_id = self._model_names.site_name2id["target"]
         self.S_grasp_site_id = self._model_names.site_name2id["S_grasp"]
         self.obj_body_id = self._model_names.body_name2id["Object"]
-        self.act_mean = np.mean(self.model.actuator_ctrlrange, axis=1)
+        self.act_mean = np.mean(self.model.jnt_range[:22, :], axis=1)
         self.act_rng = 0.5 * (
-            self.model.actuator_ctrlrange[:, 1] - self.model.actuator_ctrlrange[:, 0]
+            self.model.jnt_range[:22, 1] - self.model.jnt_range[:22, 0]
         )
 
         self.arm_pos = np.zeros(self.n_delta)
 
         self.max_translation = max_translation
-        self.max_rotation = max_rotation 
-        
+        self.max_rotation = max_rotation
+
         if self.curriculum:
             self.success_rate = 0.0
         else:
@@ -332,7 +338,6 @@ class LeapGrasp(MujocoEnv, EzPickle):
                 "fingertips_contacts": spaces.Box(
                     low=-np.inf, high=np.inf, shape=(5,), dtype=np.float64
                 ),
-                
             }
         )
 
@@ -358,6 +363,9 @@ class LeapGrasp(MujocoEnv, EzPickle):
             "ring_distal_phalanx_collision_0": "ST_ring_fingertip_site",
             "thumb_distal_phalanx_collision_0": "ST_thumb_fingertip_site",
         }
+
+        self.tcp_id = self.model.site("tcp").id
+        self.ee_id = self.model.body("ee").mocapid
 
         self.ball_init_mass = self.model.body_mass[self.obj_body_id]
 
@@ -406,7 +414,7 @@ class LeapGrasp(MujocoEnv, EzPickle):
         EzPickle.__init__(self, **kwargs)
 
     def get_joint_ranges(self):
-        return self.model.actuator_ctrlrange
+        return self.model.jnt_range[:22]
 
     def get_object_id(self):
         return self.object_ids
@@ -416,51 +424,50 @@ class LeapGrasp(MujocoEnv, EzPickle):
         n_delta = self.n_delta
 
         a = np.clip(a, -1.0, 1.0)
-        
+
         joints = self.data.qpos.ravel().copy()[:22]
-      
-        actuated = np.abs(a[:6]) > 0.1
-        self.arm_pos[actuated] = self.data.qpos.ravel().copy()[:6][actuated]
+        # print(actuated)
+        self.arm_pos = self.tcp_pos()
         joints[:6] = self.arm_pos
 
-        # a = self.act_mean + a * self.act_rng
-        
+
         if self.hand_control_space == "delta_joints":
-            
+
             a[:3] = self.act_mean[:3] + a[:3] * self.act_rng[:3] * self.max_translation
             a[3:] = self.act_mean[3:] + a[3:] * self.act_rng[3:] * self.max_rotation
-            
+
             joints += a
             desired_pos = joints.copy()
-            
+
         elif self.hand_control_space == "joints":
-            
+
             a[:3] = a[:3] * self.act_rng[:3] * self.max_translation
-            a[3:self.n_delta] = a[3:self.n_delta] * self.act_rng[3:self.n_delta] * self.max_rotation
-            
-            a[self.n_delta:] = self.act_mean[self.n_delta:] + a[self.n_delta:] * self.act_rng[self.n_delta:]
-            
-            joints[:self.n_delta] += a[:self.n_delta]
+            a[3 : self.n_delta] = (
+                a[3 : self.n_delta] * self.act_rng[3 : self.n_delta] * self.max_rotation
+            )
+
+            a[self.n_delta :] = (
+                self.act_mean[self.n_delta :]
+                + a[self.n_delta :] * self.act_rng[self.n_delta :]
+            )
+
+            joints[: self.n_delta] += a[: self.n_delta]
             joints[self.n_delta:] = a[self.n_delta:]
-            
-            
-            # a = self.act_mean + a * self.act_rng
-            
-            # joints[:3] += a[:3] * self.max_translation
-            # joints[3:self.n_delta] += a[3:self.n_delta] * self.max_rotation
-            # joints[self.n_delta:] = a[self.n_delta:]
-            
+
             desired_pos = joints.copy()
-            
-        
+
         desired_pos[:n_delta] = np.clip(
             desired_pos[:n_delta],
-            self.model.actuator_ctrlrange[:n_delta, 0],
-            self.model.actuator_ctrlrange[:n_delta, 1],
+            self.model.jnt_range[:n_delta, 0],
+            self.model.jnt_range[:n_delta, 1],
         )
 
-        # desired_pos = self.data.qpos.ravel().copy()[:30]
-        self.do_simulation(desired_pos, self.frame_skip)
+        self.data.mocap_pos[self.ee_id] = desired_pos[:3]
+        self.data.mocap_quat[self.ee_id] = R.from_euler(
+            "xyz", desired_pos[3:6]
+        ).as_quat(scalar_first=True)
+
+        self.do_simulation(desired_pos[6:], self.frame_skip)
 
         # print("Simulation time:", time.time() - st)
         obs = self._get_obs()
@@ -581,6 +588,21 @@ class LeapGrasp(MujocoEnv, EzPickle):
             info,
         )
 
+    def tcp_pos(self):
+
+        tcp_pos = self.data.site_xpos[self.tcp_id].copy()  # (3,)
+        tcp_R = self.data.site_xmat[self.tcp_id].reshape(3, 3).copy()  # (3,3)
+        tcp_euler = R.from_matrix(tcp_R).as_euler("xyz")
+
+        return np.concat([tcp_pos, tcp_euler])
+    
+    def ee_pos(self):
+
+        ee_pos = self.data.site_xpos[self.ee_id].copy()[0]  # (3,)
+        ee_R = self.data.site_xmat[self.ee_id].reshape(3, 3).copy()  # (3,3)
+        ee_euler = R.from_matrix(ee_R).as_euler("xyz")
+        return np.concat([ee_pos, ee_euler])
+
     def get_obs(self):
         return self._get_obs()
 
@@ -591,9 +613,12 @@ class LeapGrasp(MujocoEnv, EzPickle):
         qpos = self.data.qpos.ravel()
         obj_pos = self.data.xpos[self.obj_body_id].ravel()
         # print("------------------------------------")
+        tcp_pos = self.data.site_xpos[self.tcp_id].copy()  # (3,)
+        tcp_R = self.data.site_xmat[self.tcp_id].reshape(3, 3).copy()  # (3,3)
+        tcp_euler = R.from_matrix(tcp_R).as_euler("xyz")
 
         r = R.from_matrix(self.data.xmat[self.obj_body_id].reshape(3, 3))
-        quat = r.as_quat()
+        quat = r.as_quat(scalar_first=True)
 
         palm_pos = self.data.site_xpos[self.S_grasp_site_id].ravel()
 
@@ -607,7 +632,6 @@ class LeapGrasp(MujocoEnv, EzPickle):
             sensor_data.append(sensor_data_sim[sensor_id])
             if self.data.sensordata[sensor_id] > 0.0:
                 fingertips_contacts[sensor_id - 20] = 1
-            
 
         obs_palm_dist = np.clip(palm_pos - obj_pos, -2, 2)
         obs_target_dist = np.clip(palm_pos - target_pos, -2, 2)
@@ -618,7 +642,9 @@ class LeapGrasp(MujocoEnv, EzPickle):
         if self.use_quaternions:
             obs = np.concatenate(
                 [
-                    qpos[:-6],
+                    tcp_pos,
+                    tcp_euler,
+                    qpos[6:-6],
                     quat,
                     obs_palm_dist,
                     obs_target_dist,
@@ -629,6 +655,8 @@ class LeapGrasp(MujocoEnv, EzPickle):
         else:
             obs = np.concatenate(
                 [
+                    tcp_pos,
+                    tcp_euler,
                     qpos[:-6],
                     obs_palm_dist,
                     obs_target_dist,
@@ -636,10 +664,10 @@ class LeapGrasp(MujocoEnv, EzPickle):
                     fingertips_contacts,
                 ]
             )
-            
+
         if self.use_obj_id:
             obs = np.concatenate([obs, self.enc_object_id])
-        
+
         return obs
 
     def reset(
@@ -649,7 +677,7 @@ class LeapGrasp(MujocoEnv, EzPickle):
         options: Optional[dict] = None,
     ):
         obs, info = super().reset(seed=seed)
-      
+
         if options is not None and "initial_state_dict" in options:
             self.set_env_state(options["initial_state_dict"])
             obs = self._get_obs()
@@ -721,7 +749,7 @@ class LeapGrasp(MujocoEnv, EzPickle):
             r = R.from_matrix(rot[:3, :3])
             self.model.body_quat[self.obj_body_id] = r.as_quat(scalar_first=True)
 
-        self.success_rate = 1.0
+        self.success_rate = 0.0
         if self.hand_extreme_pos:
             delta_init_pos = [
                 np.random.choice([-0.05, 0.05]) * min(self.success_rate + 0.1, 1.0),
@@ -729,62 +757,61 @@ class LeapGrasp(MujocoEnv, EzPickle):
                 np.random.choice([0.0, 0.05]) * min(self.success_rate + 0.1, 1.0),
                 np.random.choice([-0.05, 0.05]) * min(self.success_rate + 0.1, 1.0),
                 np.random.choice([-0.05, 0.05]) * min(self.success_rate + 0.1, 1.0),
-                np.random.choice([-0.2, 0.2]) * min(self.success_rate + 0.1, 1.0)
+                np.random.choice([-0.2, 0.2]) * min(self.success_rate + 0.1, 1.0),
             ]
         else:
             delta_init_pos = [
-                np.random.uniform(-0.05, 0.05) * min(self.success_rate + 0.1, 1.0),
-                np.random.uniform(-0.05, 0.05) * min(self.success_rate + 0.1, 1.0),
-                np.random.uniform(0.0, 0.05) * min(self.success_rate + 0.1, 1.0),
-                np.random.uniform(-0.05, 0.05) * min(self.success_rate + 0.1, 1.0),
-                np.random.uniform(-0.05, 0.05) * min(self.success_rate + 0.1, 1.0),
-                np.random.uniform(-0.2, 0.2) * min(self.success_rate + 0.1, 1.0)
+                np.random.uniform(-0.1, 0.1) * min(self.success_rate + 0.1, 1.0),
+                np.random.uniform(-0.1, 0.1) * min(self.success_rate + 0.1, 1.0),
+                np.random.uniform(0.0, 0.1) * min(self.success_rate + 0.1, 1.0),
+                np.random.uniform(-0.25, 0.25) * min(self.success_rate + 0.1, 1.0),
+                np.random.uniform(-0.25, 0.25) * min(self.success_rate + 0.1, 1.0),
+                np.random.uniform(-0.25, 0.25) * min(self.success_rate + 0.1, 1.0),
             ]
-        
+
         # print(delta_init_pos)
         # print("-------------------------")
-        
+
         self.init_qpos[0] = (
             -self.model.body_pos[self.obj_body_id, 0]
             + self.reset_pos[0]
             + delta_init_pos[0]
         )
 
-        
         self.init_qpos[1] = (
             self.model.body_pos[self.obj_body_id, 1]
             + self.reset_pos[1]
             + delta_init_pos[1]
         )
-        self.init_qpos[2] = self.reset_pos[2] + 0.1 + delta_init_pos[1]
+        self.init_qpos[2] = self.reset_pos[2] + 0.2 + delta_init_pos[1]
         self.init_qpos[3] = delta_init_pos[3]
         self.init_qpos[4] = delta_init_pos[4]
         self.init_qpos[5] = delta_init_pos[5]
+        # self.init_qpos[19] = 1.57
 
         self.init_qpos[: self.n_delta] = np.clip(
             self.init_qpos[: self.n_delta],
-            self.model.actuator_ctrlrange[: self.n_delta, 0],
-            self.model.actuator_ctrlrange[: self.n_delta, 1],
+            self.model.jnt_range[: self.n_delta, 0],
+            self.model.jnt_range[: self.n_delta, 1],
         )
 
+        self.data.mocap_pos[self.ee_id] = self.init_qpos[:3]
+        self.data.mocap_quat[self.ee_id] = R.from_euler("xyz", self.init_qpos[3:6]).as_quat(scalar_first=True)
         # init_qpos = np.zeros_like(self.init_qpos)
         init_qvel = np.zeros_like(self.init_qvel)
-        
-        self.arm_pos = self.init_qpos[: self.n_delta]
 
-        self.init_qpos[19] = -1.57
-        
+        self.arm_pos = self.init_qpos[: self.n_delta]
 
         self.set_state(self.init_qpos, init_qvel)
 
         return self._get_obs()
 
+    def set_initial_hand_pos(self, hand_pos: np.ndarray):
 
-    def set_initial_hand_pos(self, hand_pos : np.ndarray):
-        
-        self.init_qpos[8:30] = self.act_mean[8:30] + hand_pos.copy() * self.act_rng[8:30]
-        
-    
+        self.init_qpos[8:30] = (
+            self.act_mean[8:30] + hand_pos.copy() * self.act_rng[8:30]
+        )
+
     def get_env_state(self):
         """
         Get state of hand as well as objects and targets in the scene
@@ -797,7 +824,7 @@ class LeapGrasp(MujocoEnv, EzPickle):
         target_pos = self.data.site_xpos[self.target_obj_site_id].ravel().copy()
 
         r = R.from_matrix(self.data.xmat[self.obj_body_id].reshape(3, 3))
-        quat = r.as_quat()
+        quat = r.as_quat(scalar_first=True)
 
         fingertips_contacts = [0] * 5
 
@@ -829,17 +856,17 @@ class LeapGrasp(MujocoEnv, EzPickle):
 
         if init:
             self.model.body_pos[self.obj_body_id] = state_dict["obj_pos"]
-            self.data.xmat[self.obj_body_id] = R.from_quat(state_dict["obj_rot"]).as_matrix().reshape(-1)
-            
+            self.data.xmat[self.obj_body_id] = (
+                R.from_quat(state_dict["obj_rot"]).as_matrix().reshape(-1)
+            )
+
             self.model.site_pos[self.target_obj_site_id] = state_dict["target_pos"]
-            
+
         self.model.site_pos[self.target_obj_site_id] = state_dict["target_pos"]
 
         self.arm_pos = qp[:6]
 
         self.set_state(qp, qv)
-
-
 
     def normalize_joints(self, joints):
         """
@@ -857,6 +884,6 @@ class LeapGrasp(MujocoEnv, EzPickle):
         )
 
     def set_success_rate(self, success_rate, force=False):
-        
+
         if self.curriculum or force:
             self.success_rate = success_rate

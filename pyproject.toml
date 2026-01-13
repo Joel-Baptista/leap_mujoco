@@ -9,9 +9,11 @@ dependencies = [
     "gymnasium-robotics>=1.4.2",
     "mujoco>=3.4.0",
     "mujoco-py>=2.1.2.14",
+    "numpy-quaternion>=2024.0.13",
     "pynput>=1.8.1",
     "pyyaml>=6.0.3",
     "scikit-learn>=1.8.0",
+    "scipy>=1.16.3",
     "stable-baselines3>=2.7.1",
     "tensorboard>=2.20.0",
 ]

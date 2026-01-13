@@ -2,10 +2,13 @@ from gymnasium.envs.registration import register
 import gymnasium as gym
 
 import numpy as np
+import copy
 
 from envs.leap_grasp import LeapGrasp
 import time
 
+from interfaces.joystick_interface import JoyStickInterface
+from interfaces.keyboard_interface import KeyboardInterface
 
 if __name__ == "__main__":
 
@@ -14,12 +17,14 @@ if __name__ == "__main__":
         entry_point="test_env:LeapGrasp",
     )
 
-    env = gym.make(
-        "LeapGrasp-v0",
-        render_mode="human",
-        max_translation=0.1,
-        max_rotation=0.1,
-        )
+    env = LeapGrasp( 
+        render_mode="human"
+    )
+    
+    interface = JoyStickInterface(env.model, env.data)
+    # try:
+    # except:
+    #     interface = KeyboardInterface(env.model, env.data)
     
     mean_stat = []
     for i in range(50):
@@ -34,10 +39,10 @@ if __name__ == "__main__":
         first = True
         while True:
             timestep += 1
-
-            action = np.zeros(env.action_space.shape)
-            action[19] = -1.57
+            env.render()
+            action = interface.input_to_robot_action(copy.deepcopy(interface.current_readings))
             obs, reward, terminated, truncated, info = env.step(action)
+            # print(obs)
             
             if terminated or truncated or time.time() - st > t or timestep > 200:
                 env.reset()

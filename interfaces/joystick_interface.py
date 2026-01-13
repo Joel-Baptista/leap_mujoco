@@ -1,4 +1,3 @@
-import threading
 import time
 import numpy as np
 import copy
@@ -8,6 +7,8 @@ import os
 
 from interfaces.base_interface import BaseInterface
 
+from scipy.spatial.transform import Rotation as R
+
 
 class JoyStickInterface(BaseInterface):
     def __init__(self, model, data, scale = [0.01, 0.01]) -> None:
@@ -16,33 +17,6 @@ class JoyStickInterface(BaseInterface):
 
         super().__init__(model, data, scale)
 
-    def update_robot_state(self):
-        
-        last_action = (self.last_ctrl - self.act_mean) / self.act_rng
-        action = self.input_to_robot_action(copy.deepcopy(self.current_readings))
-
-        actuated = np.abs(action) > 0.01
-        if any(actuated):
-            last_action[actuated] += action[actuated] * self.scale[actuated]
-
-        last_action = np.clip(last_action, -1.0, 1.0)
-        ctrl = self.act_mean + last_action * self.act_rng
-
-        ctrl = np.clip(
-            ctrl,
-            self.model.actuator_ctrlrange[:, 0],
-            self.model.actuator_ctrlrange[:, 1],
-        )
-
-        self.data.ctrl = ctrl
-        self.last_ctrl = ctrl
-
-        if "Button8" in self.current_readings.keys():
-            if self.current_readings["Button8"]:
-                self.last_ctrl = self.init_ctrl
-                return True
-
-        return False
 
     # Function to read from the joystick device
     def read_input(self):
@@ -104,8 +78,8 @@ class JoyStickInterface(BaseInterface):
         robot_action[0] = -input_action["Axis0"] # Arm X
         robot_action[1] = -input_action["Axis1"] # Arm Y
         robot_action[2] = input_action["Axis2"] - input_action["Axis5"]  # Arm Z
-        robot_action[3] =  input_action["Axis4"] * (1 - input_action["Button5"]) # Arm angular up/down
-        robot_action[4] =  - input_action["Axis3"] * (1 - input_action["Button5"])  # Arm angular left/right
+        robot_action[3] =  - input_action["Axis3"] * (1 - input_action["Button5"])  # Arm angular left/right
+        robot_action[4] =  input_action["Axis4"] * (1 - input_action["Button5"]) # Arm angular up/down
         robot_action[5] =  input_action["Axis3"] * input_action["Button5"] # Full rotation
     
         robot_action[6] = max(input_action["Button13"], input_action["Button0"]) * (1 - input_action["Button4"] * 2)   # Forefinger

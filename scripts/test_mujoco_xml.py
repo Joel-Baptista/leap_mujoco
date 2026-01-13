@@ -23,7 +23,6 @@ def main():
 
     with viewer.launch_passive(model, data) as v:
         while True:
-            # print("In sim loop:", data.ctrl.ravel().copy())
             reset = interface.update_robot_state()
 
             if reset:
