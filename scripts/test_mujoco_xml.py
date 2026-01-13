@@ -3,6 +3,9 @@ from mujoco import viewer
 import numpy as np
 import time
 
+from interfaces.joystick_interface import JoyStickInterface
+from interfaces.keyboard_interface import KeyboardInterface
+
 DEG2RAD = np.pi / 180.0
 
 def main():
@@ -12,21 +15,20 @@ def main():
 
     mj.mj_step(model, data)
 
-    # action = [30, 60, -30, -60, 80, -45, -80, 45]
-    # action = np.array(action) * DEG2RAD
 
-    # data.ctrl[:] = action
-    mj.mj_step(model, data)
+    try:
+        interface = JoyStickInterface(model, data)
+    except:
+        interface = KeyboardInterface(model, data)
 
     with viewer.launch_passive(model, data) as v:
         while True:
-            print(data.contact)
+            # print("In sim loop:", data.ctrl.ravel().copy())
+            reset = interface.update_robot_state()
 
-            for contact in data.contact:
-                print(mj.mj_id2name(model, mj.mjtObj.mjOBJ_GEOM, contact.geom1))
-                print(mj.mj_id2name(model, mj.mjtObj.mjOBJ_GEOM, contact.geom2))
-                print("----------------------------------")
-            
+            if reset:
+                mj.mj_resetData(model, data)
+
             # data.ctrl[:] = action
             mj.mj_step(model, data)
             v.sync()

@@ -13,7 +13,7 @@
         <map force="0.1" fogend="5" />
     </visual>
     <default class="main">
-        <joint limited="true" margin="0.01" armature="0.001" damping="0.02" frictionloss="0.001" />
+        <joint limited="true" margin="0.01" armature="0.001" damping="0.02" frictionloss="0.01" />
         <default class="pid">
             <position
                 forcerange="-.95000000 .95000000" forcelimited="true" kp="2100" kv="30" />
@@ -112,7 +112,7 @@
             ctrlrange="-0.314 2.23"
             ctrllimited="true" class="pid" />
         <position name="index_pip_abb_joint_ctrl" joint="index_pip_abb_joint"
-            forcelimited="true" ctrlrange="-1.378810 1.378810"
+            forcelimited="true" ctrlrange="-0.5 0.5"
             ctrllimited="true" class="pid" />
         <position name="index_mcp_joint_ctrl" joint="index_mcp_joint"
             ctrlrange="-0.45379 2.44346"
@@ -124,7 +124,7 @@
             ctrlrange="-0.314 2.23"
             ctrllimited="true" class="pid"/>
         <position name="middle_pip_abb_joint_ctrl" joint="middle_pip_abb_joint"
-            ctrlrange="-1.378810 1.378810"
+            ctrlrange="-0.5 0.5"
             ctrllimited="true" class="pid"/>
         <position name="middle_mcp_joint_ctrl" joint="middle_mcp_joint"
             ctrlrange="-0.45379 2.44346"
@@ -136,7 +136,7 @@
             ctrlrange="-0.314 2.23"
             ctrllimited="true" class="pid"/>
         <position name="ring_pip_abb_joint_ctrl" joint="ring_pip_abb_joint"
-            ctrlrange="-1.378810 1.378810"
+            ctrlrange="-0.5 0.5"
             ctrllimited="true" class="pid"/>
         <position name="ring_mcp_joint_ctrl" joint="ring_mcp_joint"
             ctrlrange="-0.45379 2.44346" ctrllimited="true" class="pid"/>

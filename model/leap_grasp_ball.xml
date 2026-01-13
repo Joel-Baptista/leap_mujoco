@@ -75,12 +75,12 @@
     </worldbody>
     
     <actuator>
-        <general name="A_ARTx" joint="ARTx" ctrlrange="-0.4 0.25" gaintype="affine" biastype="affine" gainprm="500 0 0" biasprm="0 -500 -60"/>
-        <general name="A_ARTy" joint="ARTy" ctrlrange="-0.3 0.4" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -10" />
-        <general name="A_ARTz" joint="ARTz" ctrlrange="-0.2 0.4" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -10" />
-        <general name="A_ARRx" joint="ARRx" ctrlrange="-1.5 1.5" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -10" />
-        <general name="A_ARRy" joint="ARRy" ctrlrange="-.75 .75" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -10" />
-        <general name="A_ARRz" joint="ARRz" ctrlrange="-.75 .75" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -10" />
+        <general name="A_ARTx" joint="ARTx" ctrlrange="-0.4 0.25" gaintype="affine" biastype="affine" gainprm="500 0 0" biasprm="0 -500 -25"/>
+        <general name="A_ARTy" joint="ARTy" ctrlrange="-0.3 0.4" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -25" />
+        <general name="A_ARTz" joint="ARTz" ctrlrange="-0.2 0.4" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -25" />
+        <general name="A_ARRx" joint="ARRx" ctrlrange="-1.5 1.5" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -25" />
+        <general name="A_ARRy" joint="ARRy" ctrlrange="-.75 .75" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -25" />
+        <general name="A_ARRz" joint="ARRz" ctrlrange="-.75 .75" gaintype="affine" biastype="affine" gainprm="500 0" biasprm="0 -500 -25" />
     </actuator>
     
     
